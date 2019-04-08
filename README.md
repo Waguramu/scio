@@ -1,4 +1,4 @@
-# DeepJurist
+# DeepJ
 ## Deep AI tool for facilitating judicial workflows
 Motivation: 
 
