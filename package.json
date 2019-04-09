@@ -1,15 +1,15 @@
 {
-    "name": "angular-7-jwt-authentication-example",
-    "version": "1.0.0",
+    "name": "deepjurist",
+    "version": "0.0.1",
     "repository": {
         "type": "git",
-        "url": "https://github.com/cornflourblue/angular-7-jwt-authentication-example.git"
+        "url": "https://github.com/Waguramu/DeepJurist.git"
     },
     "scripts": {
         "build": "webpack --mode production",
         "start": "webpack-dev-server --mode development --open"
     },
-    "license": "MIT",
+    "license": "",
     "dependencies": {
         "@angular/common": "^7.0.1",
         "@angular/compiler": "^7.0.1",
