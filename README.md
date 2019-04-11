@@ -7,3 +7,9 @@ For tech-works diverse tools exist to make processes more efficient, a continuou
 Validation:
 
 Before narrowing down the problem statement diverse interviews were conducted. 
+
+
+## Getting Started
+
+ - run npm install
+ - run npm start

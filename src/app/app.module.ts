@@ -16,7 +16,9 @@ import { routing } from './app.routing';
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
+
 import {SearchComponent} from "@/search/search.component";
+
 
 @NgModule({
     imports: [
