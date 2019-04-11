@@ -4,13 +4,107 @@ import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 import { User } from '@/_models';
+import { Client } from '@/_models';
+import { Collection } from '@/_models';
+import { Document } from '@/_models';
+import { Attachments } from '@/_models';
+import { History } from '@/_models';
+import { Subscription } from '@/_models';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const users: User[] = [
-            { id: "1", username: 'test', password: 'test', firstName: 'Test', lastName: 'User' }
+        const subscriptions: Subscription[] = [
+            { id: '1', active: true, expires: '31.12.2019', type: 'Expert' },
+            { id: '2', active: true, expires: '31.12.2019', type: 'Expert' },
+            { id: '3', active: true, expires: '31.12.2019', type: 'Expert' },
+            { id: '4', active: true, expires: '31.12.2019', type: 'Expert' }
         ];
+        var users: User[] = [
+            { id: "1", username: '', password: '', firstName: '', lastName: '', email: '',
+                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[0] },
+            { id: "2", username: '', password: '', firstName: '', lastName: '', email: '',
+                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[1] },
+            { id: "3", username: '', password: '', firstName: '', lastName: '', email: '',
+                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[2] },
+            { id: "4", username: '', password: '', firstName: '', lastName: '', email: '',
+                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[3] }
+        ];
+        const documents: Document[] = [
+            { id: "1", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "2", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "3", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "4", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "5", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "6", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "7", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "8", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "9", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "10", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "11", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' },
+            { id: "12", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+                file: '' }
+        ];
+        const collections: Collection[] = [
+            { id: "1", creator: null, title: '', annotations: [''], date: '', documents: [''],
+                summary: '' },
+            { id: "2", creator: null, title: '', annotations: [''], date: '', documents: [''],
+                summary: '' },
+            { id: "3", creator: null, title: '', annotations: [''], date: '', documents: [''],
+                summary: '' },
+            { id: "4", creator: null, title: '', annotations: [''], date: '', documents: [''],
+                summary: '' },
+            { id: "5", creator: null, title: '', annotations: [''], date: '', documents: [''],
+                summary: '' }
+        ];
+        const histories: History[] = [
+            { id: "1", collections: null, documents: null },
+            { id: "2", collections: null, documents: null },
+            { id: "3", collections: null, documents: null },
+            { id: "4", collections: null, documents: null }
+        ];
+        const saved: Attachments[] = [
+            { id: "1", collections: null, documents: null },
+            { id: "2", collections: null, documents: null },
+            { id: "3", collections: null, documents: null },
+            { id: "4", collections: null, documents: null }
+        ];
+        const attachments: Attachments[] = [
+            { id: "1", collections: null, documents: null },
+            { id: "2", collections: null, documents: null },
+            { id: "3", collections: null, documents: null }
+        ];
+        const client: Client[] = [
+            { id: "1", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[0] },
+            { id: "2", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[1] },
+            { id: "3", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[2] }
+        ];
+        users[0].history = histories[0];
+        users[1].history = histories[1];
+        users[2].history = histories[2];
+        users[3].history = histories[3];
+
+        users[0].saved = saved[0];
+        users[1].saved = saved[1];
+        users[2].saved = saved[2];
+        users[3].saved = saved[3];
+
+        users[0].client = client[0];
+        users[1].client = client[1];
+        users[2].client = client[3];
+        users[3].client = client[3];
+
 
         const authHeader = request.headers.get('Authorization');
         const isLoggedIn = authHeader && authHeader.startsWith('Bearer fake-jwt-token');
