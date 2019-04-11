@@ -6,8 +6,9 @@ export class User {
     id: string;
     password: string;
     email: string;
-    firstname: string;
-    lastname: string;
+    username: string;
+    firstName: string;
+    lastName: string;
     birthday: string;
     subscription: Subscription;
     history: History;
