@@ -8,7 +8,7 @@ import { SearchComponent } from "@/search/search.component";
 const appRoutes: Routes = [
     {
         path: '',
-        component: HomeComponent,
+        component: SearchComponent,
         canActivate: [AuthGuard]
     },
     {
@@ -16,8 +16,8 @@ const appRoutes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'search',
-        component: SearchComponent
+        path: 'home',
+        component: HomeComponent
     },
 
     // otherwise redirect to home
