@@ -5,18 +5,8 @@ import { Component } from '@angular/core';
 })
 
 export class SearchComponent {
-    // private LOGO = require()
 
-    title = "Deep Tool";
-    pic_logo = "";
     pic_search = "/src/assets/img/loupe-w.png";
-
-    elements: any = [
-        {date: "08.04.2019", name: 'Mark Otto', email: 'mark.otto@gmail.com', text: "My neighbour shits in my garden every weekend!"},
-        {date: "08.04.2019", name: 'Axel Müller', email: 'axel@gmx.de', text: "I bumped my car!"},
-        {date: "08.04.2019", name: 'Marina Steinmeier', email: 'mst@yahoo.jp', text: "I lost all my money to a Nigerian prince"}
-    ];
-
 
     cases: any = [
         {

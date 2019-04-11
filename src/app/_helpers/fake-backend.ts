@@ -11,99 +11,114 @@ import { Attachments } from '@/_models';
 import { History } from '@/_models';
 import { Subscription } from '@/_models';
 
+export class FakeData {
+
+    subscriptions: Subscription[] = [
+        { id: '1', active: true, expires: '31.12.2019', type: 'Expert' },
+        { id: '2', active: true, expires: '31.12.2018', type: 'Expert' },
+        { id: '3', active: true, expires: '31.12.2017', type: 'Expert' },
+        { id: '4', active: true, expires: '31.12.2016', type: 'Expert' }
+    ];
+    users: User[] = [
+        { id: "1", username: 'jessica.pearson', password: 'p3@rs0n', firstName: 'Jessica', lastName: 'Pearson', email: 'jessica.pearson@awesomecompany.de', tel:'089 111111',
+            birthday: '01.06.1990', saved: null, clients: null, history: null, photo: '', subscription: this.subscriptions[0] },
+        { id: "2", username: 'harvey.specter', password: 'sp3ct3r', firstName: 'Harvey', lastName: 'Specter', email: 'harvey.specter@awesomecompany.de', tel:'089 222222',
+            birthday: '01.01.1990', saved: null, clients: null, history: null, photo: '', subscription: this.subscriptions[1] },
+        { id: "3", username: 'rachel.zane', password: 'z@n3', firstName: 'Rachel', lastName: 'Zane', email: 'rachel.zane@awesomecompany.de', tel:'089 333333',
+            birthday: '01.12.1990', saved: null, clients: null, history: null, photo: '', subscription: this.subscriptions[2] },
+        { id: "4", username: 'mike.ross', password: 'r0ss', firstName: 'Mike', lastName: 'Ross', email: 'mike.ross@awesomecompany.de', tel:'089 444444',
+            birthday: '01.03.1990', saved: null, clients: null, history: null, photo: '', subscription: this.subscriptions[3] }
+    ];
+    documents: Document[] = [
+        { id: "1", creator: null, title: 'Neue Probleme beim Autokauf', annotations: [''], date:'01.01.2019', keypoints: [''],
+            file: 'Konrad Klein (K) kaufte im März 2017 bei Bernhard Vogel (V), einem gewerblichen Autohändler einen von ihm zuvor besichtigten gebrauchten Pkw, der ihm am 26. März 2017 übergebenwurde. Das Fahrzeug dient der Familie Klein für private Fahrten. Am 23. Juni 2017 leuchtet während einer Fahrt auf der Autobahn in Höhe Augsburg die Motor-Management-Kontrollleuchte auf. In der nächstgelegenen KfZ-Werkstatt wurde ein Defekt des Katalysators festgestellt. Seit wann dieser Defekt am Katalysator besteht, lässt sich nicht mehr klären. Eine Weiterfahrt war möglich. Dennoch lässt K den Wagen sofort reparieren. Für diese Reparaturrechnung stellt die KfZ-Werkstatt 1.400 € in Rechnung. K verlangt von V den Ersatz dieser Rechnung. V weigert sich: Der Defekt am Katalysator sei auf die Fahrweise des K zurückzuführen. Im Übrigen hätte K erst zu ihm kommen müssen statt eigenmächtig zu handeln.' },
+        { id: "2", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "3", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "4", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "5", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "6", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "7", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "8", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "9", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "10", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "11", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' },
+        { id: "12", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+            file: '' }
+    ];
+    collections: Collection[] = [
+        { id: "1", creator: null, title: '', annotations: [''], date: '', documents: [this.documents[1]],
+            summary: '' },
+        { id: "2", creator: null, title: '', annotations: [''], date: '', documents: [this.documents[0]],
+            summary: '' },
+        { id: "3", creator: null, title: '', annotations: [''], date: '', documents: [this.documents[0]],
+            summary: '' },
+        { id: "4", creator: null, title: '', annotations: [''], date: '', documents: [this.documents[0]],
+            summary: '' },
+        { id: "5", creator: null, title: '', annotations: [''], date: '', documents: [this.documents[0]],
+            summary: '' }
+    ];
+    histories: History[] = [
+        { id: "1", collections: null, documents: null },
+        { id: "2", collections: null, documents: null },
+        { id: "3", collections: null, documents: null },
+        { id: "4", collections: null, documents: null }
+    ];
+    saved: Attachments[] = [
+        { id: "1", collections: null, documents: null },
+        { id: "2", collections: null, documents: null },
+        { id: "3", collections: null, documents: null },
+        { id: "4", collections: null, documents: null }
+    ];
+    attachments: Attachments[] = [
+        { id: "1", collections: null, documents: null },
+        { id: "2", collections: null, documents: null },
+        { id: "3", collections: null, documents: null }
+    ];
+    clients: Client[] = [
+        { id: "1", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: this.attachments[0] },
+        { id: "2", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: this.attachments[1] },
+        { id: "3", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: this.attachments[2] }
+    ];
+
+    constructor(){
+        this.users[0].history = this.histories[0];
+        this.users[1].history = this.histories[1];
+        this.users[2].history = this.histories[2];
+        this.users[3].history = this.histories[3];
+
+        this.users[0].saved = this.saved[0];
+        this.users[1].saved = this.saved[1];
+        this.users[2].saved = this.saved[2];
+        this.users[3].saved = this.saved[3];
+/*
+        this.users[0].clients = this.[this.clients[0]];
+        this.users[1].clients = this.[this.clients[1]];
+        this.users[2].clients = this.[this.clients[3]];
+        this. users[3].clients = this.[this.clients[3]];
+        */
+    };
+
+     getUsers(): User[] {
+        return this.users;
+    };
+}
+
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const subscriptions: Subscription[] = [
-            { id: '1', active: true, expires: '31.12.2019', type: 'Expert' },
-            { id: '2', active: true, expires: '31.12.2019', type: 'Expert' },
-            { id: '3', active: true, expires: '31.12.2019', type: 'Expert' },
-            { id: '4', active: true, expires: '31.12.2019', type: 'Expert' }
-        ];
-        var users: User[] = [
-            { id: "1", username: '', password: '', firstName: '', lastName: '', email: '',
-                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[0] },
-            { id: "2", username: '', password: '', firstName: '', lastName: '', email: '',
-                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[1] },
-            { id: "3", username: '', password: '', firstName: '', lastName: '', email: '',
-                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[2] },
-            { id: "4", username: '', password: '', firstName: '', lastName: '', email: '',
-                birthday: '', saved: null, client: null, history: null, photo: '', subscription: subscriptions[3] }
-        ];
-        const documents: Document[] = [
-            { id: "1", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "2", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "3", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "4", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "5", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "6", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "7", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "8", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "9", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "10", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "11", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' },
-            { id: "12", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
-                file: '' }
-        ];
-        const collections: Collection[] = [
-            { id: "1", creator: null, title: '', annotations: [''], date: '', documents: [''],
-                summary: '' },
-            { id: "2", creator: null, title: '', annotations: [''], date: '', documents: [''],
-                summary: '' },
-            { id: "3", creator: null, title: '', annotations: [''], date: '', documents: [''],
-                summary: '' },
-            { id: "4", creator: null, title: '', annotations: [''], date: '', documents: [''],
-                summary: '' },
-            { id: "5", creator: null, title: '', annotations: [''], date: '', documents: [''],
-                summary: '' }
-        ];
-        const histories: History[] = [
-            { id: "1", collections: null, documents: null },
-            { id: "2", collections: null, documents: null },
-            { id: "3", collections: null, documents: null },
-            { id: "4", collections: null, documents: null }
-        ];
-        const saved: Attachments[] = [
-            { id: "1", collections: null, documents: null },
-            { id: "2", collections: null, documents: null },
-            { id: "3", collections: null, documents: null },
-            { id: "4", collections: null, documents: null }
-        ];
-        const attachments: Attachments[] = [
-            { id: "1", collections: null, documents: null },
-            { id: "2", collections: null, documents: null },
-            { id: "3", collections: null, documents: null }
-        ];
-        const client: Client[] = [
-            { id: "1", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[0] },
-            { id: "2", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[1] },
-            { id: "3", firstName: '', lastName: '', address: '', birthday: '', email: '', phone: '', attachments: attachments[2] }
-        ];
-        users[0].history = histories[0];
-        users[1].history = histories[1];
-        users[2].history = histories[2];
-        users[3].history = histories[3];
-
-        users[0].saved = saved[0];
-        users[1].saved = saved[1];
-        users[2].saved = saved[2];
-        users[3].saved = saved[3];
-
-        users[0].client = client[0];
-        users[1].client = client[1];
-        users[2].client = client[3];
-        users[3].client = client[3];
+        let fake = new FakeData();
+        let users = fake.getUsers();
 
 
         const authHeader = request.headers.get('Authorization');
@@ -114,7 +129,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
             // authenticate - public
             if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
-                const user = users.find(x => x.username === request.body.username && x.password === request.body.password);
+
+                let user = users.find(x => x.username === request.body.username && x.password === request.body.password);
                 if (!user) return error('Username or password is incorrect');
                 return ok({
                     id: user.id,

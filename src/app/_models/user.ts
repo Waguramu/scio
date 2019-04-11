@@ -7,13 +7,15 @@ export class User {
     id: string;
     password: string;
     email: string;
+    tel: string;
     username: string;
     firstName: string;
     lastName: string;
     birthday: string;
     photo: string;
-    client: [Client];
+    clients: [Client];
     subscription: Subscription;
     history: History;
     saved: Attachments;
+    token?: string;
 }
