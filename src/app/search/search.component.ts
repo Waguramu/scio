@@ -8,7 +8,7 @@ export class SearchComponent {
     // private LOGO = require()
 
     title = "Deep Tool";
-    pic_logo = "/src/assets/img/robot.png";
+    pic_logo = "";
     pic_search = "/src/assets/img/loupe-w.png";
 
     elements: any = [

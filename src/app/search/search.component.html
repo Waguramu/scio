@@ -1,209 +1,172 @@
+<!-- Component: search -->
 
-<div class="container" style="padding: 1em 0em">
-    <div class="row">
-        <!-- LEFT -->
-        <div class="col-12 col-sm-3">
-            <div class="left-container">
-                <div class="left-logo">
-                    <img src="{{pic_logo}}" style="width: 60px; height: 60px;"/>
+<div class="right-item right-search">
+    <form action="#">
+        <div class="row">
+            <input type="text" class="input-group-text" id="right-input-search" style="text-align: left; float: left; width: 90%"/>
+            <button class="btn" id="btn-search" style="width: 10%; float: left; text-align: center; background-color: #9E9E9E; border-color: #9E9E9E;" onclick="$('#right-search-result').show();">
+                <img src="{{pic_search}}" style="width: 30px; height: auto; margin: 5px 0px;" />
+            </button>
+        </div>
+    </form>
+    <p style="color: #9E9E9E;"><i>About 259.000 results (0,28 seconds)</i></p>
+</div>
+
+<!--
+<tr mdbTableCol *ngFor="let el of elements">
+    <td>{{el.date}}</td>
+    <td>{{el.name}}</td>
+    <td>{{el.email}}</td>
+    <td>{{el.text}}</td>
+</tr>
+-->
+<!-- result container -->
+<div id="right-search-result">
+    <div class="right-item">
+        <div id="accordion">
+
+            <div class="card">
+                <div class="card-header" id="headingOne" style="background-color: #145B73">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white; font-weight: bold;">
+                            <span>99% </span>
+                            <span>Alkoholexport nach China</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
+                        </button>
+                    </h5>
                 </div>
-                <div class="left-title">
-                    <div>{{title}}</div>
-                </div>
-                <div class="left-menu">
-                    <div class="left-menu-item">
-                        <a href="search.component.html">Internal Google</a>
-                    </div>
-                    <div class="left-menu-item">
-                        <a href="-email.html">Automatic Email Reply</a>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div style="font-style: italic">
+                            <table>
+                                <tr>
+                                    <td><strong>id:</strong> X20180523CND</td>
+                                    <td><strong>reference:</strong> German Export Law</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
+                                    <td><strong>Enddatum:</strong> 20.05.2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
+                                    <td><strong>Kunden:</strong> @John Doe</td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+                        <br>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- RIGHT -->
-        <div class="col-12 col-sm-9">
-            <div class="right-container">
-
-                <div class="right-item right-search">
-                    <form action="#">
-                        <div class="row">
-                            <input type="text" class="input-group-text" id="right-input-search" style="text-align: left; float: left; width: 90%"/>
-                            <button class="btn" id="btn-search" style="width: 10%; float: left; text-align: center; background-color: #9E9E9E; border-color: #9E9E9E;" onclick="$('#right-search-result').show();">
-                                <img src="{{pic_search}}" style="width: 30px; height: auto; margin: 5px 0px;" />
-                            </button>
-                        </div>
-                    </form>
-                    <p style="color: #9E9E9E;"><i>About 259.000 results (0,28 seconds)</i></p>
+            <div class="card">
+                <div class="card-header" id="headingTwo" style="background-color: #145B73">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white; font-weight: bold;">
+                            <span>92% </span>
+                            <span>Whiskey nach China</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
+                        </button>
+                    </h5>
                 </div>
-
-                <!--
-                <tr mdbTableCol *ngFor="let el of elements">
-                    <td>{{el.date}}</td>
-                    <td>{{el.name}}</td>
-                    <td>{{el.email}}</td>
-                    <td>{{el.text}}</td>
-                </tr>
-                -->
-                <!-- result container -->
-                <div id="right-search-result" style="display: none;">
-                    <div class="right-item">
-                        <div id="accordion">
-
-                            <div class="card">
-                                <div class="card-header" id="headingOne" style="background-color: #145B73">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white; font-weight: bold;">
-                                            <span>99% </span>
-                                            <span>Alkoholexport nach China</span>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
-                                        </button>
-                                    </h5>
-                                </div>
-
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <div style="font-style: italic">
-                                            <tr>
-                                                <td><strong>id:</strong> X20180523CND</td>
-                                                <td><strong>reference:</strong> German Export Law</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
-                                                <td><strong>Enddatum:</strong> 20.05.2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
-                                                <td><strong>Kunden:</strong> @John Doe</td>
-                                            </tr>
-                                        </div>
-
-
-                                        <br>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-header" id="headingTwo" style="background-color: #145B73">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: white; font-weight: bold;">
-                                            <span>92% </span>
-                                            <span>Whiskey nach China</span>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <div style="font-style: italic">
-                                            <tr>
-                                                <td><strong>id:</strong> X20180523CND</td>
-                                                <td><strong>reference:</strong> German Export Law</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
-                                                <td><strong>Enddatum:</strong> 20.05.2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
-                                                <td><strong>Kunden:</strong> @John Doe</td>
-                                            </tr>
-                                        </div>
-
-
-                                        <br>
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-header" id="headingThree" style="background-color: #09ACC2;">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-weight: bold;">
-                                            <span>80% </span>
-                                            <span>Alkoholexport nach China</span>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <div style="font-style: italic">
-                                            <tr>
-                                                <td><strong>id:</strong> X20180523CND</td>
-                                                <td><strong>reference:</strong> German Export Law</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
-                                                <td><strong>Enddatum:</strong> 20.05.2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
-                                                <td><strong>Kunden:</strong> @John Doe</td>
-                                            </tr>
-                                        </div>
-
-
-                                        <br>
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card">
-                                <div class="card-header" id="headingFour" style="background-color: #9E9E9E;">
-                                    <h5 class="mb-0">
-                                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseFour" style="color: white; font-weight: bold;">
-                                            <span>75% </span>
-                                            <span>Getränke nach China</span>
-                                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2017</span>
-                                        </button>
-                                    </h5>
-                                </div>
-                                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <div style="font-style: italic">
-                                            <tr>
-                                                <td><strong>id:</strong> X20180523CND</td>
-                                                <td><strong>reference:</strong> German Export Law</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
-                                                <td><strong>Enddatum:</strong> 20.05.2018</td>
-                                            </tr>
-                                            <tr>
-                                                <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
-                                                <td><strong>Kunden:</strong> @John Doe</td>
-                                            </tr>
-                                        </div>
-
-
-                                        <br>
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                    </div>
-                                </div>
-                            </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <div style="font-style: italic">
+                            <table>
+                                <tr>
+                                    <td><strong>id:</strong> X20180523CND</td>
+                                    <td><strong>reference:</strong> German Export Law</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
+                                    <td><strong>Enddatum:</strong> 20.05.2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
+                                    <td><strong>Kunden:</strong> @John Doe</td>
+                                </tr>
+                            </table>
                         </div>
+
+
+                        <br>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                     </div>
                 </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree" style="background-color: #09ACC2;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: white; font-weight: bold;">
+                            <span>80% </span>
+                            <span>Alkoholexport nach China</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2018</span>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div style="font-style: italic">
+                            <table>
+                                <tr>
+                                    <td><strong>id:</strong> X20180523CND</td>
+                                    <td><strong>reference:</strong> German Export Law</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
+                                    <td><strong>Enddatum:</strong> 20.05.2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
+                                    <td><strong>Kunden:</strong> @John Doe</td>
+                                </tr>
+                            </table>
+                        </div>
 
 
+                        <br>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header" id="headingFour" style="background-color: #9E9E9E;">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseFour" style="color: white; font-weight: bold;">
+                            <span>75% </span>
+                            <span>Getränke nach China</span>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.05.2017</span>
+                        </button>
+                    </h5>
+                </div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        <div style="font-style: italic">
+                            <table>
+                                <tr>
+                                    <td><strong>id:</strong> X20180523CND</td>
+                                    <td><strong>reference:</strong> German Export Law</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum:</strong> 01.02.2018</td>
+                                    <td><strong>Enddatum:</strong> 20.05.2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt:</strong> @Lawyer Lee; @Lawyer Ben Müller</td>
+                                    <td><strong>Kunden:</strong> @John Doe</td>
+                                </tr>
+                            </table>
+                        </div>
 
 
+                        <br>
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-
 </div>
-
-
-<script type="text/javascript">
-
-    $('#btn-search').click(function () {
-        $('#right-search-result').show();
-    });
-</script>
-
-

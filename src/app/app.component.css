@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+*/
+
+/* general */
+a { cursor: pointer }
+
+
+.left-container {
+    text-align: center;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    position: fixed;
+}
+.left-menu {
+    margin-top: 5em;
+    border-top: 1px solid #DBDBDB;
+}
+.left-menu-item {
+    text-align: left;
+    padding: 1em 0em;
+}
+
+.right-container {
+    border-left: 1px solid #DBDBDB;
+    padding: 0em 1em;
+}
+.right-item {
+    padding-bottom: 1em;
+    margin: 10px;
+}
+.right-btn-group {
+    height: 150px;
+    overflow-y: scroll;
+}
+
+
+/*
+.btn-main {
+    color: #fff;
+    background-color: #145B73;
+    border-color: #145B73;
+}
+
+.btn-opt-first {
+    color: #fff;
+    background-color: #145B73;
+    border-color: #145B73;
+}
+.btn-opt-second {
+    color: #fff;
+    background-color: #09ACC2;
+    border-color: #09ACC2;
+}
+.btn-opt-third {
+    color: #fff;
+    background-color: #9E9E9E;
+    border-color: #9E9E9E;
+}
+.btn-opt-fourth {
+    color: #fff;
+    background-color: #DBDBDB;
+    border-color: #DBDBDB;
+}
+*/
