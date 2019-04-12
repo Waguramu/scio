@@ -3,6 +3,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 import { AuthGuard } from './_guards';
 import { SearchComponent } from "@/search/search.component";
+import { DocumentComponent } from "@/document/document.component";
 
 
 const appRoutes: Routes = [
@@ -10,6 +11,10 @@ const appRoutes: Routes = [
         path: '',
         component: SearchComponent,
         canActivate: [AuthGuard]
+    },
+    {
+        path: 'document',
+        component: DocumentComponent
     },
     {
         path: 'login',

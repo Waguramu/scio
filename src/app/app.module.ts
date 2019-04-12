@@ -18,6 +18,7 @@ import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 
 import {SearchComponent} from "@/search/search.component";
+import {DocumentComponent} from "@/document/document.component";
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {SearchComponent} from "@/search/search.component";
         AppComponent,
         HomeComponent,
         LoginComponent,
-        SearchComponent
+        SearchComponent,
+        DocumentComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
