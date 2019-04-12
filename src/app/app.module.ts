@@ -20,6 +20,7 @@ import { LoginComponent } from './login';
 import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
+import { UserComponent } from "@/user/user.component";
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { DocumentComponent } from "@/document/document.component";
         LoginComponent,
         SearchComponent,
         EmailComponent,
-        DocumentComponent
+        DocumentComponent,
+        UserComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

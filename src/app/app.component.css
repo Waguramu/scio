@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 */
 
 /* general */
@@ -12,6 +11,7 @@ a { cursor: pointer }
     padding-top: 2em;
     padding-bottom: 2em;
     position: fixed;
+    width: 317px;
 }
 
 .left-menu {
