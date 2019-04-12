@@ -17,8 +17,9 @@ import { JwtInterceptor, ErrorInterceptor } from './_helpers';
 import { HomeComponent } from './home';
 import { LoginComponent } from './login';
 
-import {SearchComponent} from "@/search/search.component";
-import {DocumentComponent} from "@/document/document.component";
+import { SearchComponent } from "@/search/search.component";
+import { EmailComponent } from "@/email/email.component";
+import { DocumentComponent } from "@/document/document.component";
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {DocumentComponent} from "@/document/document.component";
         HomeComponent,
         LoginComponent,
         SearchComponent,
+        EmailComponent,
         DocumentComponent
     ],
     providers: [
