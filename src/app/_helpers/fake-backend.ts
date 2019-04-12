@@ -32,7 +32,7 @@ export class FakeData {
     documents: Document[] = [
         { id: "1", creator: null, title: 'Neue Probleme beim Autokauf', annotations: [''], date:'01.01.2019', keypoints: [''],
             file: 'Konrad Klein (K) kaufte im März 2017 bei Bernhard Vogel (V), einem gewerblichen Autohändler einen von ihm zuvor besichtigten gebrauchten Pkw, der ihm am 26. März 2017 übergebenwurde. Das Fahrzeug dient der Familie Klein für private Fahrten. Am 23. Juni 2017 leuchtet während einer Fahrt auf der Autobahn in Höhe Augsburg die Motor-Management-Kontrollleuchte auf. In der nächstgelegenen KfZ-Werkstatt wurde ein Defekt des Katalysators festgestellt. Seit wann dieser Defekt am Katalysator besteht, lässt sich nicht mehr klären. Eine Weiterfahrt war möglich. Dennoch lässt K den Wagen sofort reparieren. Für diese Reparaturrechnung stellt die KfZ-Werkstatt 1.400 € in Rechnung. K verlangt von V den Ersatz dieser Rechnung. V weigert sich: Der Defekt am Katalysator sei auf die Fahrweise des K zurückzuführen. Im Übrigen hätte K erst zu ihm kommen müssen statt eigenmächtig zu handeln.' },
-        { id: "2", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
+        { id: "2", creator: null, title: 'Geschädigte Helfer', annotations: [''], date:'', keypoints: [''],
             file: '' },
         { id: "3", creator: null, title: '', annotations: [''], date:'', keypoints: [''],
             file: '' },

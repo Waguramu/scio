@@ -1,17 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { FakeData } from  '../_helpers';
 
 @Component({
     templateUrl: 'document.component.html',
+    styleUrls: ['./document.component.css']
 })
 
-export class DocumentComponent {
+export class DocumentComponent implements OnInit{
     fake: FakeData;
 
     constructor() {
-        this.fake = new FakeData();
-
     }
 
-
+    ngOnInit() {
+        this.fake = new FakeData();
+    }
 }

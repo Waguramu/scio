@@ -15,10 +15,9 @@ export class AppComponent {
     constructor(
         private router: Router,
         private authenticationService: AuthenticationService,
-        private user: User
+
     ) {
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-        this.user = new User();
     }
 
     logout() {
@@ -26,8 +25,4 @@ export class AppComponent {
         this.router.navigate(['/login']);
     }
 
-    /**
-    checkLogin() {
-       this.user.
-    }*/
 }
