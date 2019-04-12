@@ -16,6 +16,13 @@
     Please, enter text in the field!
 </div>
 
+<!-- annotations -->
+<div *ngIf="searching">
+    <ul class="list-group list-group-horizontal-md flex-fill">
+        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
+    </ul>
+</div>
+
 <!-- result container -->
 <div id="right-search-result" *ngIf="searching">
     <p style="color: #9E9E9E;"><i>About 259.000 results (0,28 seconds)</i></p>

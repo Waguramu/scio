@@ -13,7 +13,7 @@ export class User {
     lastName: string;
     birthday: string;
     photo: string;
-    clients: [Client];
+    clients: Client[];
     subscription: Subscription;
     history: History;
     saved: Attachments;
