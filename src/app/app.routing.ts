@@ -5,7 +5,7 @@ import { AuthGuard } from './_guards';
 import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
-
+import { UserComponent } from "@/user/user.component";
 
 const appRoutes: Routes = [
     {
@@ -19,7 +19,8 @@ const appRoutes: Routes = [
         children: [
             {path: 'search', component: SearchComponent},
             {path: 'email', component: EmailComponent},
-            {path: 'document', component: DocumentComponent}
+            {path: 'document', component: DocumentComponent},
+            {path: 'user', component: UserComponent}
         ]
     },
 

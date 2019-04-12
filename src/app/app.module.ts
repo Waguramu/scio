@@ -22,7 +22,6 @@ import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -40,7 +39,8 @@ import { UserComponent } from "@/user/user.component";
         SearchComponent,
         EmailComponent,
         DocumentComponent,
-        UserComponent
+        UserComponent,
+
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
