@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files
 @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-
 */
 
 /* general */
@@ -12,7 +11,9 @@ a { cursor: pointer }
     padding-top: 2em;
     padding-bottom: 2em;
     position: fixed;
+    width: 317px;
 }
+
 .left-menu {
     margin-top: 5em;
     border-top: 1px solid #DBDBDB;
@@ -35,14 +36,13 @@ a { cursor: pointer }
     overflow-y: scroll;
 }
 
-
-/*
 .btn-main {
     color: #fff;
     background-color: #145B73;
     border-color: #145B73;
 }
 
+/*
 .btn-opt-first {
     color: #fff;
     background-color: #145B73;

@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import { FakeData } from  '../_helpers';
 
 @Component({
-    templateUrl: 'document.component.html',
-    styleUrls: ['../app.component.css', './document.component.css']
+    templateUrl: 'user.component.html',
+    styleUrls: ['../app.component.css']
 })
 
-export class DocumentComponent implements OnInit{
+export class UserComponent implements OnInit{
     fake: FakeData;
 
     constructor() {

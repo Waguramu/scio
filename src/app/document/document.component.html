@@ -1,4 +1,53 @@
 <div>
     <h1>Document Management</h1>
-    {{fake.documents}}
+
+    <div>
+        <button class="btn btn-main">Create new Document</button>
+    </div>
+
+    <div>
+        <div id="accordion">
+            <!-- card for loop -->
+            <div class="card" *ngFor="let docu of fake.documents">
+                <div class="card-header" id="heading{{fake.id}}" style="background-color: #145B73">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white; font-weight: bold;">
+                            <span>@TODO </span>
+                            <span>{{ docu.title }}</span>
+                            <span>{{ docu.date }}</span>
+                        </button>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <div style="font-style: italic">
+                            <table>
+                                <tr>
+                                    <td><strong>id:</strong> {{ docu.id }} </td>
+                                    <td><strong>reference:</strong> {{ docu.ref }} </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum:</strong> {{ docu.startdate }} </td>
+                                    <td><strong>Enddatum:</strong> {{ docu.enddate }} </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt:</strong> @{{ docu.creator }}}</td>
+                                   <!-- <td><strong>Kunden:</strong> @John Doe</td> -->
+                                </tr>
+                            </table>
+                        </div>
+
+                        <br>
+                        <div>
+                            <p>{{ docu.file }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
 </div>

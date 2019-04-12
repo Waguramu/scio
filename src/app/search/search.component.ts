@@ -6,10 +6,10 @@ import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     templateUrl: 'search.component.html',
+    styleUrls: ['../app.component.css']
 })
 
 export class SearchComponent {
-
     pic_search = "/src/assets/img/loupe-w.png";
 
     fakeData: FakeData;
