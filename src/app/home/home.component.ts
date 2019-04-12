@@ -1,4 +1,5 @@
 ﻿import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 
 import { User } from '@/_models';
@@ -6,9 +7,16 @@ import { UserService, AuthenticationService } from '@/_services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
+    currentUser: User;
     users: User[] = [];
 
-    constructor(private userService: UserService) { }
+    constructor(
+        private userService: UserService,
+        private authenticationService: AuthenticationService,
+        private router: Router,
+        ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    }
 
     ngOnInit() {
         this.userService.getAll().pipe(first()).subscribe(users => {
@@ -23,4 +31,9 @@ export class HomeComponent {
     ];
 
     headElements = ['Date', 'Name', 'Email', 'Message'];
+
+    logout() {
+        this.authenticationService.logout();
+        this.router.navigate(['/login']);
+    }
 }

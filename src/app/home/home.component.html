@@ -1,19 +1,47 @@
-﻿<h1>Home</h1>
-<p *ngFor="let user of users">Welcome, {{user.firstName}} {{user.lastName}}!</p>
-<div>
-    <table mdbTable hover="true">
-        <thead>
-        <tr>
-            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr mdbTableCol *ngFor="let el of elements">
-            <td>{{el.date}}</td>
-            <td>{{el.name}}</td>
-            <td>{{el.email}}</td>
-            <td>{{el.text}}</td>
-        </tr>
-        </tbody>
-    </table>
+﻿<nav class="navbar navbar-expand-md" *ngIf="currentUser">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-item nav-link" (click)="logout()">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Left Menu -->
+        <div class="col-12 col-sm-2">
+            <div class="left-container">
+                <div class="left-logo">
+                    <img src="/src/assets/img/robot.png" style="width: 60px; height: 60px;"/>
+                </div>
+                <div class="left-title">
+                    <div>{{title}}</div>
+                </div>
+                <div class="left-menu">
+                    <div class="left-menu-item">
+                        <a routerLink="/home/search">Internal Google</a>
+                    </div>
+                    <div class="left-menu-item">
+                        <a routerLink="/home/email">Automatic Email Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Right -->
+        <div class="col-12 col-sm-10">
+            <div class="right-container">
+                <!-- Breadcrumb -->
+                <div>
+                    Breadcrumb goes here... @TODO
+                </div>
+
+                <!-- main app container -->
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
 </div>
