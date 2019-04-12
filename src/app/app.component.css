@@ -13,6 +13,7 @@ a { cursor: pointer }
     padding-bottom: 2em;
     position: fixed;
 }
+
 .left-menu {
     margin-top: 5em;
     border-top: 1px solid #DBDBDB;
@@ -35,14 +36,13 @@ a { cursor: pointer }
     overflow-y: scroll;
 }
 
-
-/*
 .btn-main {
     color: #fff;
     background-color: #145B73;
     border-color: #145B73;
 }
 
+/*
 .btn-opt-first {
     color: #fff;
     background-color: #145B73;

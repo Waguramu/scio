@@ -101,10 +101,10 @@ export class FakeData {
         this.users[2].saved = this.saved[2];
         this.users[3].saved = this.saved[3];
 
-        this.users[0].clients[0] = this.clients[0];
-        this.users[1].clients[0] = this.clients[1];
-        this.users[2].clients[0] = this.clients[2];
-        this. users[3].clients[0] = this.clients[2];
+        this.users[0].clients = [this.clients[0]];
+        this.users[1].clients = [this.clients[1]];
+        this.users[2].clients = [this.clients[2]];
+        this.users[3].clients = [this.clients[2]];
 
     };
 
