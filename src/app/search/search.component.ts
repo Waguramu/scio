@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { FakeData } from "@/_helpers";
 import { Document } from "@/_models";
-import {query} from "@angular/animations";
-import {forEach} from "@angular/router/src/utils/collection";
+import { query } from "@angular/animations";
+import { forEach } from "@angular/router/src/utils/collection";
 
 @Component({
     templateUrl: 'search.component.html',
-    styleUrls: ['../app.component.css']
+    styleUrls: ['search.component.css']
 })
-
 export class SearchComponent {
     pic_search = "/src/assets/img/loupe-w.png";
 
@@ -63,6 +62,7 @@ export class SearchComponent {
     warning: Boolean;
     query: string;
     annotations: string[];
+    meta: any[];
     documents: Document[];
 
     constructor(){
@@ -71,10 +71,14 @@ export class SearchComponent {
         this.query = "";
         this.warning = false;
         this.documents = [];
+        this.meta = [];
         this.annotations = [];
     };
 
     search() {
+        this.documents = [];
+        this.annotations = [];
+        this.meta = [];
         if (this.query == "") {
             this.warning = true;
             this.searching = false;
@@ -89,27 +93,29 @@ export class SearchComponent {
         // Call api or processing
         let annotations = ['blah', 'mlah', 'flah', 'nlah', 'dlah'];
         this.annotations = annotations;
-        let documentIds = [];
+        this.meta = [];
         for (let document of this.fakeData.documents) {
             let intersection = document.annotations.filter(x => annotations.includes(x));
             if (intersection.length != 0) {
-                documentIds.push({id: document.id,
+                this.meta.push({id: document.id,
                     annotations: intersection,
                     percentage: 100 * intersection.length / annotations.length});
             }
         }
         // Sort the documents' ids in descending order so the best coincidence is at the top
-        documentIds.sort((a, b) => {
+        this.meta.sort((a, b) => {
             if (a.annotations.length > b.annotations.length) { return -1; } else return 1;
         });
 
         //console.log([...documentIds.entries()].map(([key, value]) => ({key, ...value})).sort((a, b) => a.length - b.length));
+        // this.meta = documentIds;
 
-        for (let id of documentIds.map(function(a) { return a.id; })) {
+        for (let id of this.meta.map(function(a) { return a.id; })) {
             this.documents.push(this.fakeData.documents[id - 1]);
         }
-
-        console.log(this.documents);
     };
 
+    getPercentage(id) {
+        return this.meta.filter(a => a.id == id).map(a => a.percentage);
+    }
 }

@@ -21,6 +21,7 @@ import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
+import { AccordionModule } from 'ngx-bootstrap';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { UserComponent } from "@/user/user.component";
         routing,
         BrowserAnimationsModule,
         MDBBootstrapModule.forRoot(),
-        FormsModule
+        FormsModule,
+        AccordionModule.forRoot()
     ],
     declarations: [
         AppComponent,
