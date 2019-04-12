@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { FakeData } from "@/_helpers";
+import { Document } from "@/_models";
+import {query} from "@angular/animations";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
     templateUrl: 'search.component.html',
@@ -7,6 +11,8 @@ import { Component } from '@angular/core';
 export class SearchComponent {
 
     pic_search = "/src/assets/img/loupe-w.png";
+
+    fakeData: FakeData;
 
     cases: any = [
         {
@@ -53,5 +59,41 @@ export class SearchComponent {
         }
     ];
 
-    constructor(){};
+    searching: Boolean;
+    warning: Boolean;
+    query: string;
+
+    constructor(){
+        this.fakeData = new FakeData();
+        this.searching = false;
+        this.query = "";
+        this.warning = false;
+    };
+
+    search() {
+        if (this.query == "") {
+            this.warning = true;
+            this.searching = false;
+        } else {
+            this.warning = false;
+            this.searching = !this.searching;
+        }
+    };
+
+    extractAnnotations() {
+        // Call api or processing
+        let annotations = [''];
+        var documents = new Map<string, string[]>();
+        for (let document of this.fakeData.documents) {
+            let intersection = document.annotations.filter(x => annotations.includes(x));
+            if (intersection.length != 0) {
+                documents.set(document.id, intersection);
+            }
+
+        }
+        for (let collection of this.fakeData.documents) {
+            // Process collections
+        }
+    };
+
 }
