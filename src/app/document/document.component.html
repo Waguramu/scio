@@ -20,12 +20,47 @@
 </div>
 
 
+<!-- tabs -->
+<div class="docu-tab-container">
+    <div class="tab">
+        <button class="tablinks tab-current" (click)="openTab('tab-current')">Current Docu</button>
+        <button class="tablinks tab-saved" (click)="openTab('tab-saved')">Saved Docu</button>
+    </div>
 
-<!-- result container -->
+    <div id="tab-current" class="tabcontent">
+        <h3>Current Cases</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="tab-saved" class="tabcontent" style="display: none;">
+        <h3>Saved Cases</h3>
+        <p>Paris is the capital of France.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+<!-- tabs -->
+
+
+
+
+
+
+
+
+
 <div id="right-search-result" *ngIf="document">
     <div class="right-item">
 
-        <!-- part 1: my docu -->
+
+
+
+
         <accordion>
             <accordion-group heading="{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of my_documents">
                 <div style="color: black; font-weight: normal">
@@ -59,7 +94,7 @@
 
 
 
-        <!-- part 2: saved docu -->
+
 
     </div>
 </div>

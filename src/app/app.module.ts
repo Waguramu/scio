@@ -21,7 +21,8 @@ import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
-import { AccordionModule } from 'ngx-bootstrap';
+import {AccordionModule, TabsModule} from 'ngx-bootstrap';
+import {CommonModule} from "@angular/common";
 
 @NgModule({
     imports: [
@@ -32,7 +33,10 @@ import { AccordionModule } from 'ngx-bootstrap';
         BrowserAnimationsModule,
         MDBBootstrapModule.forRoot(),
         FormsModule,
-        AccordionModule.forRoot()
+        AccordionModule.forRoot(),
+        TabsModule,
+        CommonModule
+
     ],
     declarations: [
         AppComponent,
@@ -41,8 +45,7 @@ import { AccordionModule } from 'ngx-bootstrap';
         SearchComponent,
         EmailComponent,
         DocumentComponent,
-        UserComponent,
-
+        UserComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

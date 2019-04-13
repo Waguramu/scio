@@ -1,17 +1,50 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgModule, OnInit} from '@angular/core';
 import { FakeData } from  '../_helpers';
 import {Document} from "@/_models";
+import {AppComponent} from "@/app.component";
+import {BrowserModule} from "@angular/platform-browser";
+import construct = Reflect.construct;
 
 @Component({
     templateUrl: 'document.component.html',
     styleUrls: ['../app.component.css', './document.component.css']
 })
-
-export class DocumentComponent{
+export class DocumentComponent implements OnInit{
     pic_search = "/src/assets/img/loupe-w.png";
+    constructor() {
+
+    }
+
+    ngOnInit() {
+    }
 
     fakeData: FakeData;
 
+
+
+    /* tabs */
+    static openTab(tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        // console.log(tabName);
+        // document.getElementsByClassName(tabName).;
+        /* evt.currentTarget.className += " active";*/
+
+    };
+
+
+
+
+
+/*
     cases: any = [
         {
             similarity_degree: '99%', title: ' Alkoholexport nach China', record_date: '23.05.2018',
@@ -104,5 +137,6 @@ export class DocumentComponent{
         }
     };
 
+*/
 
 }
