@@ -4,9 +4,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '@/_services';
+import {User} from "@/_models";
 
 @Component({ templateUrl: 'login.component.html' })
 export class LoginComponent implements OnInit {
+    currentUser: User;
     loginForm: FormGroup;
     loading = false;
     submitted = false;
@@ -18,7 +20,12 @@ export class LoginComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService
-    ) { }
+    ) {
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+        if (this.currentUser) {
+            this.router.navigate(['/home']);
+        }
+    }
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({

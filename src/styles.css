@@ -1,0 +1,19 @@
+@import '../node_modules/bootstrap/dist/css/bootstrap.css';
+
+.card {
+    margin-top: 10px;
+    background-color: #145B73;
+    color: white;
+    font-weight: bold;
+}
+
+.card .btn-link {
+    color: white;
+    font-weight: bold;
+}
+
+.card-body {
+    color: black;
+    background-color: white;
+    font-weight: normal;
+}
