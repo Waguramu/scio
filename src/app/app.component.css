@@ -11,7 +11,7 @@ a { cursor: pointer }
     padding-top: 2em;
     padding-bottom: 2em;
     position: fixed;
-    width: 317px;
+    /* width: 317px;*/
 }
 
 .left-menu {
@@ -24,7 +24,6 @@ a { cursor: pointer }
 }
 
 .right-container {
-    border-left: 1px solid #DBDBDB;
     padding: 0em 1em;
 }
 .right-item {

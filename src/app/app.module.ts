@@ -23,7 +23,6 @@ import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { AccordionModule } from 'ngx-bootstrap';
 
-
 @NgModule({
     imports: [
         BrowserModule,
@@ -42,7 +41,8 @@ import { AccordionModule } from 'ngx-bootstrap';
         SearchComponent,
         EmailComponent,
         DocumentComponent,
-        UserComponent
+        UserComponent,
+
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
