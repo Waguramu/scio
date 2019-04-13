@@ -23,7 +23,7 @@ import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { AccordionModule } from 'ngx-bootstrap';
 import { FileComponent } from "@/file/file.component";
-import { QuillModule } from 'ngx-quill'
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
     imports: [
@@ -35,7 +35,7 @@ import { QuillModule } from 'ngx-quill'
         MDBBootstrapModule.forRoot(),
         FormsModule,
         AccordionModule.forRoot(),
-        QuillModule
+        CKEditorModule
     ],
     declarations: [
         AppComponent,
