@@ -15,10 +15,12 @@ a { cursor: pointer }
     color: #09ACC2;
 }
 
-/* Bootstrap stylesheets overwrite */
 .breadcrumb {
-    margin-bottom: 0px !important;
+    margin: 0 !important;
+    padding: 0.5em !important;
 }
+/* Bootstrap stylesheets overwrite */
+
 
 .left-container {
     text-align: center;

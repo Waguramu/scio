@@ -13,56 +13,53 @@
 </div>
 
 
+<h1>Document Management</h1>
+
 <div>
-    <h1>Document Management</h1>
+    <button class="btn btn-main">Create new Document</button>
+</div>
 
-    <div>
-        <button class="btn btn-main">Create new Document</button>
-    </div>
 
-    <div>
-        <div id="accordion">
-            <!-- card for loop -->
-            <div class="card" *ngFor="let docu of fake.documents">
-                <div class="card-header" id="heading{{docu.id}}" style="background-color: #145B73">
-                    <h5 class="mb-0">
-                        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: white; font-weight: bold;">
-                            <span>@TODO </span>
-                            <span>{{ docu.title }}</span>
-                            <span>{{ docu.date }}</span>
-                        </button>
-                    </h5>
-                </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                    <div class="card-body">
-                        <div style="font-style: italic">
-                            <table>
-                                <tr>
-                                    <td><strong>id:</strong> {{ docu.id }} </td>
-                                    <td><strong>reference:</strong> {{ docu.ref }} </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Anfangsdatum:</strong> {{ docu.startdate }} </td>
-                                    <td><strong>Enddatum:</strong> {{ docu.enddate }} </td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Rechtsanwalt:</strong> @{{ docu.creator }}}</td>
-                                   <!-- <td><strong>Kunden:</strong> @John Doe</td> -->
-                                </tr>
-                            </table>
-                        </div>
+<!-- result container -->
+<div id="right-search-result" *ngIf="document">
+    <div class="right-item">
 
-                        <br>
-                        <div>
-                            <p>{{ docu.file }}</p>
-                        </div>
+        <!-- part 1: my docu -->
+        <accordion>
+            <accordion-group heading="{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of my_documents">
+                <div style="color: black; font-weight: normal">
+                    Annotations:
+                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of doc.annotations">{{coll}}</li>
+                    </ul>
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <td><strong>ID: </strong>{{doc.id}}</td>
+                            <td><strong>Referenz: </strong>German Export Law</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anfangsdatum: </strong>01.02.2018</td>
+                            <td><strong>Enddatum: </strong>20.05.2018</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rechtsanwalt: </strong>x</td>
+                            <td><strong>Kunden: </strong>x</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <p>{{doc.file}}</p>
                     </div>
                 </div>
-            </div>
+            </accordion-group>
+        </accordion>
 
 
-        </div>
+
+
+        <!-- part 2: saved docu -->
 
     </div>
 </div>
