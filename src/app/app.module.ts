@@ -22,6 +22,8 @@ import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { AccordionModule } from 'ngx-bootstrap';
+import { FileComponent } from "@/file/file.component";
+import { QuillModule } from 'ngx-quill'
 
 @NgModule({
     imports: [
@@ -32,7 +34,8 @@ import { AccordionModule } from 'ngx-bootstrap';
         BrowserAnimationsModule,
         MDBBootstrapModule.forRoot(),
         FormsModule,
-        AccordionModule.forRoot()
+        AccordionModule.forRoot(),
+        QuillModule
     ],
     declarations: [
         AppComponent,
@@ -42,7 +45,7 @@ import { AccordionModule } from 'ngx-bootstrap';
         EmailComponent,
         DocumentComponent,
         UserComponent,
-
+        FileComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -6,6 +6,7 @@ import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
+import { FileComponent } from "@/file/file.component";
 
 const appRoutes: Routes = [
     {
@@ -17,10 +18,11 @@ const appRoutes: Routes = [
         component: HomeComponent,
         canActivate: [AuthGuard],
         children: [
-            {path: 'search', component: SearchComponent},
-            {path: 'email', component: EmailComponent},
-            {path: 'document', component: DocumentComponent},
-            {path: 'user', component: UserComponent}
+            { path: 'search', component: SearchComponent },
+            { path: 'email', component: EmailComponent },
+            { path: 'document', component: DocumentComponent },
+            { path: 'user', component: UserComponent },
+            { path: 'file', component: FileComponent }
         ]
     },
 
