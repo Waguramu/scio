@@ -6,7 +6,7 @@ export class Collection {
     creator: User;
     date: string;
     title: string;
-    annotations: [string];
+    annotations: string[];
     summary: string;
-    documents: [Document];
+    documents: Document[];
 }

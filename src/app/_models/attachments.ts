@@ -3,6 +3,6 @@ import { Collection } from "@/_models/collection";
 
 export class Attachments {
     id: string;
-    documents: [Document];
-    collections: [Collection];
+    documents: Document[];
+    collections: Collection[];
 }
