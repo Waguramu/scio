@@ -15,10 +15,7 @@ a { cursor: pointer }
     color: #09ACC2;
 }
 
-.breadcrumb {
-    margin: 0 !important;
-    padding: 0.5em !important;
-}
+
 /* Bootstrap stylesheets overwrite */
 
 

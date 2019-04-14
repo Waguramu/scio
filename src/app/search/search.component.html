@@ -2,7 +2,11 @@
 <div class="right-item right-search">
     <form (submit)="search()">
         <div class="row">
-            <input [(ngModel)]="query" name="search" type="text" class="input-group-text" id="right-input-search" style="text-align: left; float: left; width: 90%"/>
+            <div style="text-align: left; float: left; width: 90%; position: relative;">
+                <input [(ngModel)]="query" name="search" type="text" class="input-group-text" id="right-input-search" style="width: 100%; height: 100%"/>
+                <img src="{{pic_file4search}}" style="width: 30px; height: 30px; position: absolute; right: 0px; top: 0px; margin: 11px;">
+            </div>
+
             <button class="btn" id="btn-search" style="width: 10%; float: left; text-align: center; background-color: #9E9E9E; border-color: #9E9E9E;">
                 <img src="{{pic_search}}" style="width: 30px; height: auto; margin: 5px 0px;" />
             </button>

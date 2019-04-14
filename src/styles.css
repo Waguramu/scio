@@ -17,3 +17,8 @@
     background-color: white;
     font-weight: normal;
 }
+
+.breadcrumb {
+    margin: 0 !important;
+    padding: 0.5em !important;
+}
