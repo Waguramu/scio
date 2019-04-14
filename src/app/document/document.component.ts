@@ -11,6 +11,9 @@ import construct = Reflect.construct;
 })
 export class DocumentComponent implements OnInit{
     pic_search = "/src/assets/img/loupe-w.png";
+    bgGrayBool:boolean = false;
+
+    heading1 = "Heading1";
     constructor() {
 
     }
@@ -23,7 +26,7 @@ export class DocumentComponent implements OnInit{
 
 
     /* tabs */
-    static openTab(tabName) {
+    openTab(tabName) {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
         for (i = 0; i < tabcontent.length; i++) {
@@ -31,13 +34,19 @@ export class DocumentComponent implements OnInit{
         }
         tablinks = document.getElementsByClassName("tablinks");
         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
+            tablinks[i].className = tablinks[i].className.replace(" active", " ");
         }
         document.getElementById(tabName).style.display = "block";
-        // console.log(tabName);
-        // document.getElementsByClassName(tabName).;
-        /* evt.currentTarget.className += " active";*/
 
+        if(tabName == 'tab-saved') {
+            this.bgGrayBool = true;
+        };
+        if(tabName == 'tab-current') {
+            this.bgGrayBool = false;
+        };
+
+
+        // console.log(this.bgGrayBool);
     };
 
 
