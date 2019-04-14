@@ -21,8 +21,9 @@ import { SearchComponent } from "@/search/search.component";
 import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
-import {AccordionModule, TabsModule} from 'ngx-bootstrap';
-import {CommonModule} from "@angular/common";
+import { AccordionModule } from 'ngx-bootstrap';
+import { FileComponent } from "@/file/file.component";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
     imports: [
@@ -34,9 +35,7 @@ import {CommonModule} from "@angular/common";
         MDBBootstrapModule.forRoot(),
         FormsModule,
         AccordionModule.forRoot(),
-        TabsModule,
-        CommonModule
-
+        CKEditorModule
     ],
     declarations: [
         AppComponent,
@@ -45,7 +44,8 @@ import {CommonModule} from "@angular/common";
         SearchComponent,
         EmailComponent,
         DocumentComponent,
-        UserComponent
+        UserComponent,
+        FileComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
