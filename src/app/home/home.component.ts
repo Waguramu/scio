@@ -20,6 +20,8 @@ export class HomeComponent {
     displayEditor = false;
 
     // for editor
+    tempDoc: string;
+    tempDocAttributes = {title: 'Neue Dokument', id: 'kein', ref: 'kein', start: 'kein', end: 'kein', lawyer: 'kein', client: 'kein'};
     fakeData: FakeData;
     id: string;
     document: Document;
@@ -48,7 +50,8 @@ export class HomeComponent {
 
         // for editor
         this.document = this.fakeData.documents.find(a => a.id == this.id);
-        this.fileString = '<div><h1>' + this.document.title + '</h1></div>\n' +
+        this.tempDocAttributes = localStorage.getItem('tempAttr') != null ? localStorage.getItem('tempAttr') : this.tempDocAttributes;
+        this.tempDoc = localStorage.getItem('tempDoc') != null ? localStorage.getItem('tempDoc') : '';
             '    <table class="table table-hover">\n' +
             '        <tr>\n' +
             '            <td><strong>ID: </strong>' + this.document.id + '</td>\n' +
@@ -64,7 +67,7 @@ export class HomeComponent {
             '        </tr>\n' +
             '    </table>\n' +
             '    <div>\n' +
-            '        <p>' + this.document.file + '</p>\n' +
+            '        <p>' + this.tempDoc + '</p>\n' +
             '    </div>';
     }
 
