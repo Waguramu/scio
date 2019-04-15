@@ -112,7 +112,7 @@ export class SearchComponent {
     meta: any[];
     documents: Document[];
 
-    constructor() {
+    constructor(annotationService : AnnotationExtractionService) {
         this.fakeData = new FakeData();
         this.searching = false;
         this.query = "";
@@ -120,9 +120,11 @@ export class SearchComponent {
         this.documents = [];
         this.meta = [];
         this.annotations = [];
+        this.annotationExtractionService = annotationService;
     };
 
     search() {
+        console.log("Search request triggered: " + this.query);
         this.documents = [];
         this.annotations = [];
         this.meta = [];
@@ -162,11 +164,11 @@ export class SearchComponent {
         this.annotationExtractionService.extractAnnotations(text).subscribe(
             annotations => {
                 console.log("Received annotations: " + annotations);
-                this.applyAnnotations(annotations.join(" "));
+                this.runSearch(annotations.join(" "));
             },
             error => {
                 this.warn("Failed to generate text annotation: " + error);
-                this.search(["china", "export"].join(" "));
+                this.runSearch(["china", "export"].join(" "));
             },
         );
     };
@@ -203,14 +205,15 @@ export class SearchComponent {
         }
     }
 
-    private search(annotation: String) {
+    private runSearch(annotation: string) {
         this.annotationExtractionService.runSearchQuery(annotation).subscribe(
             result => {
+                console.log("Received search results");
                 result.forEach(document => this.documents.push(document));
             },
             error => {
                 this.warn("Failed to run search, using fallback. Reason: " + error);
-                this.applyAnnotations(annotation);
+                this.applyAnnotations([annotation]);
             }
         );
     }
@@ -220,6 +223,7 @@ export class SearchComponent {
     }
 
     warn(message: string) {
+        console.warn(message);
         this.warningMessage = message;
         this.warning = true;
     }
