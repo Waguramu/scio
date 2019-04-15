@@ -139,40 +139,45 @@ export class SearchComponent {
         this.annotationExtractionService.extractAnnotations(text).subscribe(
             annotations => {
                 console.log("Received annotations: " + annotations);
-                this.annotations = annotations;
-                this.meta = [];
-                for (let document of this.fakeData.documents) {
-                    let intersection = document.annotations.filter(x => annotations.includes(x));
-                    if (intersection.length != 0) {
-                        this.meta.push({
-                            id: document.id,
-                            annotations: intersection,
-                            percentage: 100 * intersection.length / annotations.length
-                        });
-                    }
-                }
-                // Sort the documents' ids in descending order so the best coincidence is at the top
-                this.meta.sort((a, b) => {
-                    if (a.annotations.length > b.annotations.length) {
-                        return -1;
-                    } else return 1;
-                });
-
-                //console.log([...documentIds.entries()].map(([key, value]) => ({key, ...value})).sort((a, b) => a.length - b.length));
-                // this.meta = documentIds;
-
-                for (let id of this.meta.map(function (a) {
-                    return a.id;
-                })) {
-                    this.documents.push(this.fakeData.documents[id - 1]);
-                }
+                this.applyAnnotations(annotations);
             },
             error => {
                 this.warn("Failed to generate text annotation: " + error);
+                this.applyAnnotations(["china", "export"]);
             },
         );
 
     };
+
+    private applyAnnotations(annotations) {
+        this.annotations = annotations;
+        this.meta = [];
+        for (let document of this.fakeData.documents) {
+            let intersection = document.annotations.filter(x => annotations.includes(x));
+            if (intersection.length != 0) {
+                this.meta.push({
+                    id: document.id,
+                    annotations: intersection,
+                    percentage: 100 * intersection.length / annotations.length
+                });
+            }
+        }
+        // Sort the documents' ids in descending order so the best coincidence is at the top
+        this.meta.sort((a, b) => {
+            if (a.annotations.length > b.annotations.length) {
+                return -1;
+            } else return 1;
+        });
+
+        //console.log([...documentIds.entries()].map(([key, value]) => ({key, ...value})).sort((a, b) => a.length - b.length));
+        // this.meta = documentIds;
+
+        for (let id of this.meta.map(function (a) {
+            return a.id;
+        })) {
+            this.documents.push(this.fakeData.documents[id - 1]);
+        }
+    }
 
     getPercentage(id) {
         return this.meta.filter(a => a.id == id).map(a => a.percentage);
