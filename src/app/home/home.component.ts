@@ -17,6 +17,7 @@ export class HomeComponent {
     currentUser: User;
     users: User[] = [];
     pic_write = "/src/assets/img/write.png";
+    pic_logo = "/src/assets/img/logo-dark-blue.svg"
     displayEditor = false;
 
     // for editor

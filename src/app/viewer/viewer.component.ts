@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
 })
 export class ViewerComponent {
     pdfSrc: string = localStorage.getItem("file_src");
+    /*
+    constructor() {
+        console.log('pdfSrc');
+    }
+    */
 }

@@ -6,7 +6,7 @@
                 <a class="own-breadcrumb" routerLink='../../home'>Home</a>
             </mdb-breadcrumb-item>
             <mdb-breadcrumb-item class="active">
-                <a class="own-breadcrumb" routerLink='../../home/document'>User</a>
+                <a class="own-breadcrumb own-breadcrumb-active" routerLink='../../home/user'>User</a>
             </mdb-breadcrumb-item>
         </mdb-breadcrumb>
     </mdb-breadcrumb>
@@ -19,12 +19,25 @@
             <img src="{{pic_profil}}" style="width: 100%; height: auto;"/>
         </div>
         <div class="col-12 col-sm-10">
-            <h1>Personal Informationen</h1>
+            <h3>Personal Informationen</h3>
             <div class="row">
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-6 col-md-3">
                     <strong>Vorname:</strong> <span>{{currentUser.firstName}}</span>
                 </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <strong>Nachname:</strong> <span>{{currentUser.lastName}}</span>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-12 col-sm-6 col-md-3">
+                    <strong>Tel:</strong> <span>{{currentUser.tel}}</span>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <strong>Email:</strong> <span>{{currentUser.email}}</span>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
@@ -44,52 +57,132 @@
 -->
 
 <!-- tabs -->
-<div class="docu-tab-container">
-    <div class="tab">
-        <button class="tablinks" [class.bgGray]="!bgGrayBool" (click)="openTab('tab-docu')">Aktuelle Ablagen</button>
-        <button class="tablinks" [class.bgGray]="bgGrayBool" (click)="openTab('tab-case')">Aktuelle Fälle</button>
-    </div>
-    <div id="tab-docu" class="tabcontent">
-        <h3>Current Documents</h3>
-        <div class="tab-content-container">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="docu-tab-container">
+                <div class="tab" style="border-bottom: 1px solid #DBDBDB;">
+                    <button class="tablinks" [class.bgGray]="!bgGrayBool" (click)="openTab('tab-docu')">Aktuelle Ablagen</button>
+                    <button class="tablinks" [class.bgGray]="bgGrayBool" (click)="openTab('tab-case')">Aktuelle Fälle</button>
+                </div>
+                <div id="tab-docu" class="tab-format tabcontent">
 
-
-            <!--
+                    <div class="tab-content-container">
                         <accordion>
-                            <accordion-group heading="{{heading1}}" >
+                            <accordion-group heading="{{document[1].title}} {{document[1].date}}" >
                                 <div style="color: black; font-weight: normal">
-
-                                    <table class="table table-hover">
+                                    <h5>Annotations: </h5>
+                                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document[1].annotations">{{coll}}</li>
+                                    </ul>
+                                    <table class="table table-hover table-borderless">
                                         <tbody>
                                         <tr>
-                                            <td><strong>ID: </strong>{{doc.id}}</td>
-                                            <td><strong>Referenz: </strong>German Export Law</td>
+                                            <td><strong>ID: </strong>{{document[1].ref_id}}</td>
+                                            <td><strong>Referenz: </strong>{{document[1].reference}}</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Anfangsdatum: </strong>01.02.2018</td>
+                                            <td><strong>Anfangsdatum: </strong>{{document[1].date}}</td>
                                             <td><strong>Enddatum: </strong>20.05.2018</td>
                                         </tr>
                                         <tr>
-                                            <td><strong>Rechtsanwalt: </strong>x</td>
-                                            <td><strong>Kunden: </strong>x</td>
+                                            <td><strong>Rechtsanwalt: </strong>{{document[1].creator}}</td>
+                                            <td><strong>Kunden: </strong>{{document[1].client}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
                                     <div>
-                                        <p>{{doc.memo}}</p>
+                                        <p>{{document[1].file}}</p>
                                     </div>
                                 </div>
                             </accordion-group>
                         </accordion>
-            -->
 
+                        <accordion>
+                            <accordion-group heading="{{document[2].title}} {{document[2].date}}" >
+                                <div style="color: black; font-weight: normal">
+                                    <h5>Annotations: </h5>
+                                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document[2].annotations">{{coll}}</li>
+                                    </ul>
+                                    <table class="table table-hover table-borderless">
+                                        <tbody>
+                                        <tr>
+                                            <td><strong>ID: </strong>{{document[2].ref_id}}</td>
+                                            <td><strong>Referenz: </strong>{{document[2].reference}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Anfangsdatum: </strong>{{document[2].date}}</td>
+                                            <td><strong>Enddatum: </strong>20.05.2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rechtsanwalt: </strong>{{document[2].creator}}</td>
+                                            <td><strong>Kunden: </strong>{{document[2].client}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <p>{{document[2].file}}</p>
+                                    </div>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+
+                        <accordion>
+                            <accordion-group heading="{{document[3].title}} {{document[3].date}}" >
+                                <div style="color: black; font-weight: normal">
+                                    <h5>Annotations: </h5>
+                                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document[3].annotations">{{coll}}</li>
+                                    </ul>
+                                    <table class="table table-hover table-borderless">
+                                        <tbody>
+                                        <tr>
+                                            <td><strong>ID: </strong>{{document[3].ref_id}}</td>
+                                            <td><strong>Referenz: </strong>{{document[3].reference}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Anfangsdatum: </strong>{{document[3].date}}</td>
+                                            <td><strong>Enddatum: </strong>20.05.2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rechtsanwalt: </strong>{{document[3].creator}}</td>
+                                            <td><strong>Kunden: </strong>{{document[3].client}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <p>{{document[3].file}}</p>
+                                    </div>
+                                </div>
+                            </accordion-group>
+                        </accordion>
+
+                    </div>
+                </div>
+
+                <div id="tab-case" class="tab-format tabcontent" style="display: none;">
+                    <div class="row">
+                        <div class="col-12">
+                            <a href="../../home/case">
+                                <div class="user-case-container">
+                                    <img src="{{pic_case}}" style="width: 50px; float: left;">
+                                    <div>
+                                        <strong style="margin-left: 10px;">{{collection.title}}</strong>
+                                        <p>
+                                            <span style="margin-left: 10px;">{{collection.ref_id}} </span>
+                                            <span style="margin-left: 10px;">{{collection.date}} </span>
+                                            <span style="margin-left: 10px;">( {{collection_include_docu}} Dokumente inklusive )</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-    </div>
-
-    <div id="tab-case" class="tabcontent" style="display: none;">
-        <h3>Current Cases</h3>
-
     </div>
 </div>
 

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { FakeData } from  '../_helpers';
 import { AuthenticationService } from "@/_services";
 import {User} from "@/_models";
+import {Document} from "@/_models";
 
 @Component({
     templateUrl: 'user.component.html',
@@ -11,12 +12,16 @@ import {User} from "@/_models";
 export class UserComponent implements OnInit{
     pic_search = "/src/assets/img/loupe-w.png";
     pic_profil = "src/assets/img/profil.png";
+    pic_case = "/src/assets/img/folder.png";
     bgGrayBool:boolean = false;
     fakeData: FakeData;
     currentUser: User;
+    document: Document[];
+    collection: {};
+    collection_include_docu: number;
 
     heading1 = "Heading1";
-    constructor(private authenticationService: AuthenticationService ) {
+    constructor(private authenticationService: AuthenticationService) {
         console.log('User getAll()');
         console.log(this.authenticationService.currentUser);
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
@@ -24,11 +29,13 @@ export class UserComponent implements OnInit{
 
     ngOnInit() {
         this.fakeData = new FakeData();
+        this.document = this.fakeData.documents;
+
+        this.collection = this.fakeData.collections[0];
+        this.collection_include_docu = this.fakeData.collections[0]['documents'].length;
+
+        // console.log(this.fakeData.collections[0]['documents']);
     }
-
-
-
-
 
 
     /* tabs */
@@ -50,7 +57,6 @@ export class UserComponent implements OnInit{
         if(tabName == 'tab-docu') {
             this.bgGrayBool = false;
         }
-
 
         // console.log(this.bgGrayBool);
     };

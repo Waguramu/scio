@@ -1,3 +1,19 @@
+<!-- Breadcrumb -->
+<div class="breadcrumb-custom">
+    <mdb-breadcrumb>
+        <mdb-breadcrumb>
+            <mdb-breadcrumb-item>
+                <a class="own-breadcrumb" routerLink='../../home'>Home</a>
+            </mdb-breadcrumb-item>
+            <mdb-breadcrumb-item class="active">
+                <a class="own-breadcrumb own-breadcrumb-active" routerLink='../../home/cases'>Fall: Die heiße Pizza
+                </a>
+            </mdb-breadcrumb-item>
+        </mdb-breadcrumb>
+    </mdb-breadcrumb>
+</div>
+
+<!-- modal -->
 <div mdbModal #frame="mdbModal" class="modal fade left" id="frameModalTop" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -27,7 +43,8 @@
     </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
+
     <div class="row">
         <div class="col-md-10"> <h1 class="h1-responsive">{{case.title}}</h1></div>
         <div class="col-md-2">
@@ -35,80 +52,82 @@
                     (click)="frame.show()" mdbWavesEffect style="width: 100%; height: 100%">Hinzufügen</button>
         </div>
     </div>
-</div>
 
-<div class="container">
-    <h3 class="h3-responsive">Meta:</h3>
-    <hr>
-    <table class="table table-hover table-borderless">
-        <tbody>
-        <tr>
-            <td><strong>ID: </strong>{{case.ref_id}}</td>
-            <td><strong>Referenz: </strong>{{case.reference}}</td>
-        </tr>
-        <tr>
-            <td><strong>Datum: </strong>{{case.date}}</td>
-            <td><strong>Mitarbeiter: </strong>{{case.creator.firstName + ' ' + case.creator.lastName}}</td>
-        </tr>
-        </tbody>
-    </table>
-<h3 class="h3-responsive">Zusammenfassung</h3>
-<hr>
-<p>{{case.summary}}</p>
-<h3 class="h3-responsive">Anmerkungen</h3>
-<hr>
-<!-- annotations -->
-<div class="container">
     <div class="row">
-        <ul>
-            <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
-        </ul>
-    </div>
-</div>
-<hr>
-<h3 class="h3-responsive">Memos</h3>
-<hr>
-<!-- result container -->
-<accordion>
-    <accordion-group heading="{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of documents">
-        <div style="color: black; font-weight: normal">
-            <h5>Annotations: </h5>
-            <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
-                <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of doc.annotations">{{coll}}</li>
-            </ul>
+        <div class="col-12">
+            <h3 class="h3-responsive">Meta:</h3>
+            <hr>
             <table class="table table-hover table-borderless">
                 <tbody>
                 <tr>
-                    <td><strong>ID: </strong>{{doc.id}}</td>
-                    <td><strong>Referenz: </strong>German Export Law</td>
+                    <td><strong>ID: </strong>{{case.ref_id}}</td>
+                    <td><strong>Referenz: </strong>{{case.reference}}</td>
                 </tr>
                 <tr>
-                    <td><strong>Anfangsdatum: </strong>01.02.2018</td>
-                    <td><strong>Enddatum: </strong>20.05.2018</td>
-                </tr>
-                <tr>
-                    <td><strong>Rechtsanwalt: </strong>x</td>
-                    <td><strong>Kunden: </strong>x</td>
+                    <td><strong>Datum: </strong>{{case.date}}</td>
+                    <td><strong>Mitarbeiter: </strong>{{case.creator.firstName + ' ' + case.creator.lastName}}</td>
                 </tr>
                 </tbody>
             </table>
-            <div>
-                <p>{{doc.file}}</p>
+            <h3 class="h3-responsive">Zusammenfassung</h3>
+            <hr>
+            <p>{{case.summary}}</p>
+            <h3 class="h3-responsive">Anmerkungen</h3>
+            <hr>
+            <!-- annotations -->
+            <div class="container">
+                <div class="row">
+                    <ul>
+                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <h3 class="h3-responsive">Memos</h3>
+            <hr>
+            <!-- result container -->
+            <accordion>
+                <accordion-group heading="{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of documents">
+                    <div style="color: black; font-weight: normal">
+                        <h5>Annotations: </h5>
+                        <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                            <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of doc.annotations">{{coll}}</li>
+                        </ul>
+                        <table class="table table-hover table-borderless">
+                            <tbody>
+                            <tr>
+                                <td><strong>ID: </strong>{{doc.id}}</td>
+                                <td><strong>Referenz: </strong>German Export Law</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Anfangsdatum: </strong>01.02.2018</td>
+                                <td><strong>Enddatum: </strong>20.05.2018</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Rechtsanwalt: </strong>x</td>
+                                <td><strong>Kunden: </strong>x</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div>
+                            <p>{{doc.file}}</p>
+                        </div>
+                    </div>
+                </accordion-group>
+            </accordion>
+            <br>
+            <button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
+                    [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Anhänge
+            </button>
+            <div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
+                <div class="well well-lg">
+                    <button type="button" mdbBtn color="info" rounded="true" data-toggle="modal" (click)="viewFile(content)" *ngFor="let content of attachments"
+                            style="margin: 5px 5px 5px 5px;">
+                        PDF: {{content}}
+                    </button>
+                </div>
             </div>
         </div>
-    </accordion-group>
-</accordion>
-<br>
-<button type="button" class="btn btn-primary" (click)="isCollapsed = !isCollapsed"
-        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseBasic">Anhänge
-</button>
-<div id="collapseBasic" [collapse]="isCollapsed" class="card card-block card-header">
-    <div class="well well-lg">
-        <button type="button" mdbBtn color="info" rounded="true" data-toggle="modal" (click)="viewFile(content)" *ngFor="let content of attachments"
-                style="margin: 5px 5px 5px 5px;">
-            PDF: {{content}}
-        </button>
     </div>
+
 </div>
-</div>
-<br>

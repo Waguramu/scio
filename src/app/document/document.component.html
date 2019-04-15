@@ -1,41 +1,60 @@
-<div>
-    <p>Creator: {{document.creator.firstName}}&nbsp;{{document.creator.lastName}}</p>
-    Annotations:
-    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
-        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>
-    </ul>
+<!-- Breadcrumb -->
+<div class="breadcrumb-custom">
+    <mdb-breadcrumb>
+        <mdb-breadcrumb>
+            <mdb-breadcrumb-item>
+                <a class="own-breadcrumb" routerLink='../../home'>Home</a>
+            </mdb-breadcrumb-item>
+            <mdb-breadcrumb-item class="active">
+                <a class="own-breadcrumb own-breadcrumb-active" routerLink='../../home/document'>Dokument</a>
+            </mdb-breadcrumb-item>
+        </mdb-breadcrumb>
+    </mdb-breadcrumb>
 </div>
 
-<div>
-    <h2>{{document.title}}</h2>
-    <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <table class="table table-hover">
-                    <tr>
-                        <td><strong>ID: </strong> {{document.id}} </td>
-                        <td><strong>Referenz: </strong>DATA: reference</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Anfangsdatum: </strong>DATA: 01.02.2018</td>
-                        <td><strong>Enddatum: </strong>DATA: 20.05.2018</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rechtsanwalt: </strong>{{document.creator.firstName}}&nbsp;{{document.creator.lastName}}</td>
-                        <td><strong>Kunden: </strong>DATA: client name</td>
-                    </tr>
-                </table>
-                <div>
-                    <p>{{document.file}}</p>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+
+            <div>
+                <p>Creator: {{document.creator.firstName}}&nbsp;{{document.creator.lastName}}</p>
+                Annotations:
+                <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                    <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>
+                </ul>
+            </div>
+
+            <div>
+                <h2>{{document.title}}</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-10">
+                            <table class="table table-hover">
+                                <tr>
+                                    <td><strong>ID: </strong> {{document.id}} </td>
+                                    <td><strong>Referenz: </strong>DATA: reference</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Anfangsdatum: </strong>DATA: 01.02.2018</td>
+                                    <td><strong>Enddatum: </strong>DATA: 20.05.2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Rechtsanwalt: </strong>{{document.creator.firstName}}&nbsp;{{document.creator.lastName}}</td>
+                                    <td><strong>Kunden: </strong>DATA: client name</td>
+                                </tr>
+                            </table>
+                            <div>
+                                <p>{{document.file}}</p>
+                            </div>
+                        </div>
+
+                        <div class="col-2">
+                            <button class="btn btn-arrow-right">Copy it to my docu</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="col-2">
-                <button class="btn btn-arrow-right">Copy it to my docu</button>
-            </div>
-
-
         </div>
-
     </div>
 </div>

@@ -18,3 +18,23 @@
 .bgGray {
     background-color: #DBDBDB;
 }
+
+.tab-format {
+    margin: 20px;
+}
+
+.user-case-container {
+    /* border: 1px solid #DBDBDB;*/
+    background-color: rgba(219, 219, 219, .3);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#tab-case a {
+    text-decoration: none;
+    color: black;
+}
+#tab-case a:hover {
+    text-decoration: none;
+    color: black;
+}
