@@ -3,15 +3,19 @@
     <form (ngSubmit)="search()">
         <div class="row">
             <div style="text-align: left; float: left; width: 90%; position: relative;">
-                <input [(ngModel)]="query" name="search" type="text" class="input-group-text" id="right-input-search" style="width: 100%; height: 100%"/>
-                <img src="{{pic_file4search}}" style="width: 30px; height: 30px; position: absolute; right: 0px; top: 0px; margin: 11px;">
+                <input [(ngModel)]="query" name="search" type="text" class="input-group-text" id="right-input-search"
+                       style="width: 100%; height: 100%"/>
+                <img src="{{pic_file4search}}"
+                     style="width: 30px; height: 30px; position: absolute; right: 0px; top: 0px; margin: 11px;">
             </div>
 
-            <button class="btn" id="btn-search" style="width: 10%; float: left; text-align: center; background-color: #9E9E9E; border-color: #9E9E9E;">
-                <img src="{{pic_search}}" style="width: 30px; height: auto; margin: 5px 0px;" />
+            <button class="btn" id="btn-search"
+                    style="width: 10%; float: left; text-align: center; background-color: #9E9E9E; border-color: #9E9E9E;">
+                <img src="{{pic_search}}" style="width: 30px; height: auto; margin: 5px 0px;"/>
             </button>
         </div>
     </form>
+    <input #file name="upload" type="file" size="50" accept="text/*,application/pdf" (change)="searchFile($event)">
 </div>
 
 <!-- alert -->
@@ -23,7 +27,8 @@
 <div *ngIf="searching">
     Found annotations:
     <ul class="list-group list-group-horizontal-md flex-fill">
-        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
+        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;"
+            *ngFor="let coll of annotations">{{coll}}</li>
     </ul>
 </div>
 
@@ -32,31 +37,33 @@
     <p style="color: #9E9E9E;"><i>About {{documents.length}} results ({{queryTime}} seconds)</i></p>
     <div class="right-item">
         <accordion>
-            <accordion-group heading="{{getPercentage(doc.id)}}%    &nbsp;{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of documents">
+            <accordion-group heading="{{getPercentage(doc.id)}}%    &nbsp;{{doc.title}}    &nbsp;{{doc.date}}"
+                             *ngFor="let doc of documents">
                 <div style="color: black; font-weight: normal">
                     <h5>Annotations: </h5>
                     <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
-                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of doc.annotations">{{coll}}</li>
+                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;"
+                            *ngFor="let coll of doc.annotations">{{coll}}</li>
                     </ul>
-                <table class="table table-hover">
-                    <tbody>
-                    <tr>
-                        <td><strong>ID: </strong>{{doc.id}}</td>
-                        <td><strong>Referenz: </strong>German Export Law</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Anfangsdatum: </strong>01.02.2018</td>
-                        <td><strong>Enddatum: </strong>20.05.2018</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Rechtsanwalt: </strong>x</td>
-                        <td><strong>Kunden: </strong>x</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <div>
-                    <p>{{doc.file}}</p>
-                </div>
+                    <table class="table table-hover">
+                        <tbody>
+                        <tr>
+                            <td><strong>ID: </strong>{{doc.id}}</td>
+                            <td><strong>Referenz: </strong>German Export Law</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Anfangsdatum: </strong>01.02.2018</td>
+                            <td><strong>Enddatum: </strong>20.05.2018</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Rechtsanwalt: </strong>x</td>
+                            <td><strong>Kunden: </strong>x</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div>
+                        <p>{{doc.file}}</p>
+                    </div>
                 </div>
             </accordion-group>
         </accordion>

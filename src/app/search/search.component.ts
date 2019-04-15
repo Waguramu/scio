@@ -107,6 +107,7 @@ export class SearchComponent {
     warning: Boolean;
     warningMessage: string;
     query: string;
+    queryFile: File;
     annotations: string[];
     meta: any[];
     documents: Document[];
@@ -151,7 +152,7 @@ export class SearchComponent {
             },
             error => {
                 console.log("Failed to extract text, using default. Reason: " + error);
-                this.query = "china export";
+                this.query = "Klein";
                 this.search();
             }
         )
@@ -273,5 +274,10 @@ export class SearchComponent {
         console.warn(message);
         this.warningMessage = message;
         this.warning = true;
+    }
+
+    searchFile(event: Event) {
+        console.log("File search request triggered");
+        this.extractTextFromPDF((<HTMLInputElement>(event.target)).files[0]);
     }
 }
