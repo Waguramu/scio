@@ -12,6 +12,7 @@ import { UserService, AuthenticationService } from '@/_services';
 export class HomeComponent {
     currentUser: User;
     users: User[] = [];
+    pic_write = "/src/assets/img/write.png";
 
     constructor(
         private userService: UserService,
@@ -40,14 +41,14 @@ export class HomeComponent {
         this.router.navigate(['/login']);
     }
 
-    editorDisplay = false;
+    displayEditor = false;
 
     toggle() {
-        if (this.editorDisplay == false) {
-            this.editorDisplay = true;
+        if (this.displayEditor == false) {
+            this.displayEditor = true;
+        } else {
+            this.displayEditor = false;
         }
-        if (this.editorDisplay == true) {
-            this.editorDisplay = false;
-        }
+        // console.log(this.editorDisplay);
     }
 }
