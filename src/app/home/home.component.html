@@ -51,7 +51,7 @@
         </div>
         -->
 
-        <!-- Right -->
+        <!-- Main content container -->
         <div class="col-12 col-sm-6" [class.col-sm-12]="displayEditor">
             <div class="right-container">
                 <div>Left part</div>
@@ -61,8 +61,27 @@
             </div>
         </div>
 
-        <div id="editor" class="col-12 col-sm-6" style="border: 1px solid blueviolet;" [class.displayEditor]="displayEditor">
+        <!-- Editor -->
+        <div id="editor" class="col-12 col-sm-6" [class.displayEditor]="displayEditor">
             <div>I'm the editor</div>
+
+            <div class="editor-content">
+                <div>
+                    <p>Creator: Unknown</p>
+                    Annotations:
+                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>
+                    </ul>
+                </div>
+
+                <button (click)="toggleDisabled()" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;">
+                    {{ isDisabled ? 'Edit the document' : 'Save the document' }}
+                </button>
+
+                <ckeditor [editor]="Editor" data={{fileString}} (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor>
+            </div>
+
+
         </div>
     </div>
 </div>
