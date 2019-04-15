@@ -1,6 +1,6 @@
 <!-- Component: search -->
 <div class="right-item right-search">
-    <form (submit)="search()">
+    <form (ngSubmit)="search()">
         <div class="row">
             <div style="text-align: left; float: left; width: 90%; position: relative;">
                 <input [(ngModel)]="query" name="search" type="text" class="input-group-text" id="right-input-search" style="width: 100%; height: 100%"/>
