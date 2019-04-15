@@ -23,6 +23,9 @@
     padding: 0.5em !important;
 }
 
+.breadcrumb-custom {
+    margin: 5px 0 10px 0;
+}
 
 /* top nav bar */
 .navbar-custom {

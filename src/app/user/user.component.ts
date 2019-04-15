@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { FakeData } from  '../_helpers';
 import { AuthenticationService } from "@/_services";
+import {User} from "@/_models";
 
 @Component({
     templateUrl: 'user.component.html',
@@ -9,13 +10,16 @@ import { AuthenticationService } from "@/_services";
 
 export class UserComponent implements OnInit{
     pic_search = "/src/assets/img/loupe-w.png";
+    pic_profil = "src/assets/img/profil.png";
     bgGrayBool:boolean = false;
     fakeData: FakeData;
+    currentUser: User;
 
     heading1 = "Heading1";
-    constructor(private auth: AuthenticationService ) {
+    constructor(private authenticationService: AuthenticationService ) {
         console.log('User getAll()');
-        console.log(this.auth.currentUser);
+        console.log(this.authenticationService.currentUser);
+        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     }
 
     ngOnInit() {

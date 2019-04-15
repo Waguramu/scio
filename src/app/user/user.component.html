@@ -1,5 +1,5 @@
 <!-- Breadcrumb -->
-<div>
+<div class="breadcrumb-custom">
     <mdb-breadcrumb>
         <mdb-breadcrumb>
             <mdb-breadcrumb-item>
@@ -13,10 +13,24 @@
 </div>
 
 <!-- 1 Basic personal info -->
-<h1>Document Management</h1>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-2">
+            <img src="{{pic_profil}}" style="width: 100%; height: auto;"/>
+        </div>
+        <div class="col-12 col-sm-10">
+            <h1>Personal Informationen</h1>
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <strong>Vorname:</strong> <span>{{currentUser.firstName}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-<!-- 2 New a case / docu -->
+<!-- 2 New a case / docu
 <div class="">
     <div class="row">
         <div class="col-12">
@@ -27,7 +41,7 @@
         </div>
     </div>
 </div>
-
+-->
 
 <!-- tabs -->
 <div class="docu-tab-container">

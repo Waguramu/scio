@@ -50,7 +50,7 @@ export class HomeComponent {
 
         // for editor
         this.document = this.fakeData.documents.find(a => a.id == this.id);
-        this.tempDocAttributes = localStorage.getItem('tempAttr') != null ? localStorage.getItem('tempAttr') : this.tempDocAttributes;
+        // this.tempDocAttributes = localStorage.getItem('tempAttr') != null ? localStorage.getItem('tempAttr') : this.tempDocAttributes;
         this.tempDoc = localStorage.getItem('tempDoc') != null ? localStorage.getItem('tempDoc') : '';
             '    <table class="table table-hover">\n' +
             '        <tr>\n' +
