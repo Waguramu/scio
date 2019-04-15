@@ -4,6 +4,7 @@ import {Document} from "@/_models";
 import {query} from "@angular/animations";
 import {forEach} from "@angular/router/src/utils/collection";
 import {AnnotationExtractionService} from "@/_services";
+import {error} from "util";
 
 @Component({
     templateUrl: 'search.component.html',
@@ -134,20 +135,36 @@ export class SearchComponent {
         this.extractAnnotations(this.query);
     };
 
+    extractTextFromPDF(file: File) {
+        this.annotationExtractionService.extractTextFromPDF(file).subscribe(
+            text => {
+                console.log("Received extracted text: " + text);
+                this.query = text;
+                this.search();
+            },
+            error => {
+                console.log("Failed to extract text, using default. Reason: " + error);
+                this.query = "china export";
+                this.search();
+            }
+        )
+    }
+
     extractAnnotations(text: string) {
         // Call api or processing
         this.annotationExtractionService.extractAnnotations(text).subscribe(
             annotations => {
                 console.log("Received annotations: " + annotations);
-                this.applyAnnotations(annotations);
+                this.applyAnnotations(annotations.join(" "));
             },
             error => {
                 this.warn("Failed to generate text annotation: " + error);
-                this.applyAnnotations(["china", "export"]);
+                this.search(["china", "export"].join(" "));
             },
         );
-
     };
+
+
 
     private applyAnnotations(annotations) {
         this.annotations = annotations;
@@ -177,6 +194,18 @@ export class SearchComponent {
         })) {
             this.documents.push(this.fakeData.documents[id - 1]);
         }
+    }
+
+    private search(annotation: String) {
+        this.annotationExtractionService.runSearchQuery(annotation).subscribe(
+            result => {
+                result.forEach(document => this.documents.push(document));
+            },
+            error => {
+                this.warn("Failed to run search, using fallback. Reason: " + error);
+                this.applyAnnotations(annotation);
+            }
+        );
     }
 
     getPercentage(id) {
