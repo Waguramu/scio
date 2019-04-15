@@ -56,7 +56,6 @@
             <div class="right-container">
                 <!-- main app container-->
                 <router-outlet></router-outlet>
-
             </div>
         </div>
 
@@ -64,7 +63,7 @@
         <div id="editor" class="col-12 col-sm-6" [class.displayEditor]="displayEditor">
             <div class="editor-content">
                 <div>
-                    <p>Creator: Unknown</p>
+                    <p>Creator: {{currentUser.firstName}} {{currentUser.lastName}}</p>
                     Annotations:
                     <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
                         <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>

@@ -10,8 +10,31 @@
     <h2>{{document.title}}</h2>
     <div class="container">
         <div class="row">
-            {{document.date}}
+            <div class="col-10">
+                <table class="table table-hover">
+                    <tr>
+                        <td><strong>ID: </strong> {{document.id}} </td>
+                        <td><strong>Referenz: </strong>DATA: reference</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Anfangsdatum: </strong>DATA: 01.02.2018</td>
+                        <td><strong>Enddatum: </strong>DATA: 20.05.2018</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rechtsanwalt: </strong>{{document.creator.firstName}}&nbsp;{{document.creator.lastName}}</td>
+                        <td><strong>Kunden: </strong>DATA: client name</td>
+                    </tr>
+                </table>
+                <div>
+                    <p> this.document.file </p>
+                </div>
+            </div>
+            <div class="col-2">
+
+            </div>
+
         </div>
+
         <div class="row">
             {{document.file}}
         </div>
