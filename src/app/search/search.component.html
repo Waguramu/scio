@@ -29,7 +29,7 @@
 
 <!-- result container -->
 <div id="right-search-result" *ngIf="searching">
-    <p style="color: #9E9E9E;"><i>About {{documents.length}} results (0,28 seconds)</i></p>
+    <p style="color: #9E9E9E;"><i>About {{documents.length}} results ({{queryTime}} seconds)</i></p>
     <div class="right-item">
         <accordion>
             <accordion-group heading="{{getPercentage(doc.id)}}%    &nbsp;{{doc.title}}    &nbsp;{{doc.date}}" *ngFor="let doc of documents">
