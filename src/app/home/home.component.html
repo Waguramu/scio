@@ -25,35 +25,11 @@
         <img src="{{pic_write}}"/>
     </button>
 
-    <div class="row">
-
-        <!-- Left Menu
-        <div class="col-12 col-sm-2">
-            <div class="left-container">
-                <div class="" style="position: relative;">
-                    <div class="left-logo">
-                        <img src="/src/assets/img/robot.png" style="width: 60px; height: 60px;"/>
-                    </div>
-                    <div class="left-title">
-                        <div>{{title}}</div>
-                    </div>
-                    <div class="left-menu">
-                        <div class="left-menu-item">
-                            <a routerLink="/home/search">Internal Google</a>
-                        </div>
-                        <div class="left-menu-item">
-                            <a routerLink="/home/email">Automatic Email Reply</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        -->
+    <div class="row" style="padding-top: 1em;">
 
         <!-- Main content container -->
         <div class="col-12 col-sm-6" [class.col-sm-12]="displayEditor">
-            <div class="right-container">
+            <div class="main-container">
                 <!-- main app container-->
                 <router-outlet></router-outlet>
             </div>
