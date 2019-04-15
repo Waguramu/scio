@@ -1,0 +1,17 @@
+.card {
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    font-weight: normal;
+}
+
+.card .btn-link {
+    color: black;
+    font-weight: normal;
+}
+
+.card-body {
+    color: black;
+    background-color: white;
+    font-weight: normal;
+}
