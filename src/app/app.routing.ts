@@ -22,7 +22,7 @@ const appRoutes: Routes = [
             { path: 'email', component: EmailComponent },
             { path: 'document', component: DocumentComponent },
             { path: 'user', component: UserComponent },
-            { path: 'file', component: MemoComponent }
+            { path: 'memo', component: MemoComponent }
         ]
     },
 
