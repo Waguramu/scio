@@ -7,6 +7,8 @@ import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { MemoComponent } from "@/memo/memo.component";
+import { CaseComponent } from "@/case/case.component";
+import { ViewerComponent } from "@/viewer/viewer.component";
 
 const appRoutes: Routes = [
     {
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
             { path: 'email', component: EmailComponent },
             { path: 'document', component: DocumentComponent },
             { path: 'user', component: UserComponent },
-            { path: 'memo', component: MemoComponent }
+            { path: 'memo', component: MemoComponent },
+            { path: 'case', component: CaseComponent },
+            { path: 'viewer', component: ViewerComponent }
         ]
     },
 
