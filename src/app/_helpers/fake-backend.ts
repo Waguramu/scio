@@ -91,7 +91,7 @@ export class FakeData {
     documents: Document[] = [
         {
             id: "1",
-            creator: null,
+            creator: this.users[1],
             title: 'Neue Probleme beim Autokauf',
             "annotations": [
                 "wagen sofort reparieren",
@@ -111,7 +111,7 @@ export class FakeData {
         },
         {
             id: "2",
-            creator: null,
+            creator:  this.users[2],
             title: 'Geschädigte Helfer',
             "annotations": [
                 "kurzen unachtsamkeit übersehen",
@@ -131,7 +131,7 @@ export class FakeData {
         },
         {
             id: "3",
-            creator: null,
+            creator: this.users[3],
             title: 'Die weiten Kreise der Abtretung',
             "annotations": [
                 "um diese herunter",
@@ -151,7 +151,7 @@ export class FakeData {
         },
         {
             id: "4",
-            creator: null,
+            creator: this.users[3],
             title: 'Das Glück der Erde…',
             "annotations": [
                 "ohrhörern laut musik",
@@ -171,7 +171,7 @@ export class FakeData {
         },
         {
             id: "5",
-            creator: null,
+            creator: this.users[4],
             title: 'Das Geburtstagsgeschenk',
             "annotations": [
                 "zurzeit zwar ausgestellt",
@@ -191,7 +191,7 @@ export class FakeData {
         },
         {
             id: "6",
-            creator: null,
+            creator: this.users[1],
             title: 'Die Machenschaften der zwei Brüder',
             "annotations": [
                 "seit langer zeit",
@@ -211,7 +211,7 @@ export class FakeData {
         },
         {
             id: "7",
-            creator: null,
+            creator: this.users[2],
             title: 'Getrübter Fahrradspaß',
             "annotations": [
                 "verlockenden duft angezogen",
@@ -231,7 +231,7 @@ export class FakeData {
         },
         {
             id: "8",
-            creator: null,
+            creator: this.users[2],
             title: 'Die neuen Schuhe',
             "annotations": [
                 "derart großen bestand",
@@ -251,7 +251,7 @@ export class FakeData {
         },
         {
             id: "9",
-            creator: null,
+            creator: this.users[1],
             title: 'Nikolaus in Nöten',
             "annotations": [
                 "zerbrochenen stab zurück",
@@ -271,7 +271,7 @@ export class FakeData {
         },
         {
             id: "10",
-            creator: null,
+            creator: this.users[2],
             title: 'Unzuverlässiger Spediteur',
             "annotations": [
                 "keinen platz mehr",
@@ -291,7 +291,7 @@ export class FakeData {
         },
         {
             id: "11",
-            creator: null,
+            creator: this.users[4],
             title: 'Insolvenz eines Bauunternehmers',
             "annotations": [
                 "schriftlichen vertrag heißt",
@@ -311,7 +311,7 @@ export class FakeData {
         },
         {
             id: "12",
-            creator: null,
+            creator: this.users[4],
             title: 'Kaufen statt Mieten',
             "annotations": [
                 "übung gekommen sei",

@@ -1,5 +1,5 @@
-﻿<nav class="navbar navbar-expand-md" *ngIf="currentUser">
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" style="background-color: #09ACC2;">
+﻿<nav class="navbar navbar-expand-md navbar-custom" *ngIf="currentUser">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <a class="nav-item nav-link" routerLink="./document">document</a>
@@ -21,8 +21,8 @@
 </nav>
 
 <div class="container-fluid">
-    <button class="btn-new-docu" (click)="toggle()">
-        <img src="{{pic_write}}">
+    <button type="button" class="btn btn-outline-secondary btn-new-docu" (click)="toggle()" ngbPopover="This popover gets its inputs from the customized configuration" popoverTitle="Customized popover">
+        <img src="{{pic_write}}"/>
     </button>
 
     <div class="row">

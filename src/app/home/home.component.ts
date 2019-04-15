@@ -4,9 +4,10 @@ import { first } from 'rxjs/operators';
 
 import { User } from '@/_models';
 import { UserService, AuthenticationService } from '@/_services';
-import {FakeData} from "@/_helpers";
+import { FakeData } from "@/_helpers";
 import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 import {Document} from "@/_models";
+import { NgbPopoverConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     templateUrl: 'home.component.html',
@@ -30,11 +31,14 @@ export class HomeComponent {
         private userService: UserService,
         private authenticationService: AuthenticationService,
         private router: Router,
+        config: NgbPopoverConfig
         ) {
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
         // for editor
         this.id = "1";
         this.fakeData = new FakeData();
+        config.placement = 'right';
+        config.triggers = 'hover';
     }
 
     ngOnInit() {
@@ -75,8 +79,6 @@ export class HomeComponent {
     toggleDisabled() {
         this.isDisabled = !this.isDisabled
     };
-
-
 
     /*
     elements: any = [

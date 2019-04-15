@@ -23,6 +23,35 @@
     padding: 0.5em !important;
 }
 
+
+/* top nav bar */
+.navbar-custom {
+    background-color: #145B73;
+}
+
 .nav-item a.nav-link {
     color: white;
+}
+
+
+/* neu docu button */
+.btn-new-docu {
+    position: fixed;
+    z-index: 1000;
+    right: -5px;
+    top: 50%;
+    background: #145B73;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 12px 12px 2px 1px rgba(9,172,194,.2);
+}
+
+.btn-new-docu img {
+    width: 30px;
+    height: auto;
+}
+
+.displayEditor {
+    display: none;
 }
