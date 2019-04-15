@@ -24,6 +24,11 @@ import { UserComponent } from "@/user/user.component";
 import { AccordionModule } from 'ngx-bootstrap';
 import { FileComponent } from "@/file/file.component";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { CaseComponent } from "@/case/case.component";
+import { CollapseModule } from 'ngx-bootstrap';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ViewerComponent } from "@/viewer/viewer.component";
+
 
 @NgModule({
     imports: [
@@ -35,7 +40,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         MDBBootstrapModule.forRoot(),
         FormsModule,
         AccordionModule.forRoot(),
-        CKEditorModule
+        CKEditorModule,
+        CollapseModule.forRoot(),
+        PdfViewerModule
     ],
     declarations: [
         AppComponent,
@@ -45,7 +52,9 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         EmailComponent,
         DocumentComponent,
         UserComponent,
-        FileComponent
+        FileComponent,
+        CaseComponent,
+        ViewerComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -58,3 +67,4 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 })
 
 export class AppModule { }
+

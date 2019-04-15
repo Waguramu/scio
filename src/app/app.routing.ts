@@ -7,6 +7,8 @@ import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { FileComponent } from "@/file/file.component";
+import { CaseComponent } from "@/case/case.component";
+import { ViewerComponent } from "@/viewer/viewer.component";
 
 const appRoutes: Routes = [
     {
@@ -22,7 +24,9 @@ const appRoutes: Routes = [
             { path: 'email', component: EmailComponent },
             { path: 'document', component: DocumentComponent },
             { path: 'user', component: UserComponent },
-            { path: 'file', component: FileComponent }
+            { path: 'file', component: FileComponent },
+            { path: 'case', component: CaseComponent },
+            { path: 'viewer', component: ViewerComponent }
         ]
     },
 
