@@ -1,16 +1,33 @@
 ﻿<nav class="navbar navbar-expand-md" *ngIf="currentUser">
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" style="background-color: #09ACC2;">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-item nav-link" routerLink="./document">document</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" routerLink="./memo">memo</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" routerLink="./search">search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-item nav-link" routerLink="./user">user</a>
+            </li>
             <li class="nav-item">
                 <a class="nav-item nav-link" (click)="logout()">Logout</a>
             </li>
         </ul>
     </div>
 </nav>
+
 <div class="container-fluid">
+    <button class="btn-new-docu" (click)="toggle()">
+        <img src="{{pic_write}}">
+    </button>
+
     <div class="row">
 
-        <!-- Left Menu -->
+        <!-- Left Menu
         <div class="col-12 col-sm-2">
             <div class="left-container">
                 <div class="" style="position: relative;">
@@ -32,16 +49,36 @@
 
             </div>
         </div>
+        -->
 
-
-        <!-- Right -->
-        <div class="col-12 col-sm-8">
+        <!-- Main content container -->
+        <div class="col-12 col-sm-6" [class.col-sm-12]="displayEditor">
             <div class="right-container">
-
-
-                <!-- main app container -->
+                <!-- main app container-->
                 <router-outlet></router-outlet>
+
             </div>
+        </div>
+
+        <!-- Editor -->
+        <div id="editor" class="col-12 col-sm-6" [class.displayEditor]="displayEditor">
+            <div class="editor-content">
+                <div>
+                    <p>Creator: Unknown</p>
+                    Annotations:
+                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>
+                    </ul>
+                </div>
+
+                <button (click)="toggleDisabled()" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;">
+                    {{ isDisabled ? 'Edit the document' : 'Save the document' }}
+                </button>
+
+                <ckeditor [editor]="Editor" data={{fileString}} (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor>
+            </div>
+
+
         </div>
     </div>
 </div>

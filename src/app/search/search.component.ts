@@ -3,7 +3,7 @@ import {FakeData} from "@/_helpers";
 import {Document} from "@/_models";
 import {query} from "@angular/animations";
 import {forEach} from "@angular/router/src/utils/collection";
-import {AnnotationExtractionService} from "@/_services";
+import { AnnotationExtractionService } from "@/_services";
 import {error} from "util";
 
 @Component({
@@ -12,6 +12,7 @@ import {error} from "util";
 })
 export class SearchComponent {
     pic_search = "/src/assets/img/loupe-w.png";
+    pic_file4search = "/src/assets/img/file4search.png";
 
     fakeData: FakeData;
     annotationExtractionService: AnnotationExtractionService;
@@ -131,9 +132,15 @@ export class SearchComponent {
         } else {
             this.warning = false;
             this.searching = !this.searching;
+            console.log('search()');
+            console.log(this.query);
         }
+        console.log('submit');
         this.extractAnnotations(this.query);
+
     };
+
+
 
     extractTextFromPDF(file: File) {
         this.annotationExtractionService.extractTextFromPDF(file).subscribe(
@@ -186,7 +193,7 @@ export class SearchComponent {
             } else return 1;
         });
 
-        //console.log([...documentIds.entries()].map(([key, value]) => ({key, ...value})).sort((a, b) => a.length - b.length));
+        // console.log([...documentIds.entries()].map(([key, value]) => ({key, ...value})).sort((a, b) => a.length - b.length));
         // this.meta = documentIds;
 
         for (let id of this.meta.map(function (a) {

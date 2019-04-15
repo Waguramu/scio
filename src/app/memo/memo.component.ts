@@ -6,9 +6,9 @@ import * as DecoupledEditor from '@ckeditor/ckeditor5-build-decoupled-document';
 
 
 @Component({
-    templateUrl: 'file.component.html'
+    templateUrl: 'memo.component.html'
 })
-export class FileComponent {
+export class MemoComponent {
     fakeData: FakeData;
     id: string;
     document: Document;

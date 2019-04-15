@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { FormsModule } from '@angular/forms';
 
+
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
 
@@ -22,7 +23,7 @@ import { EmailComponent } from "@/email/email.component";
 import { DocumentComponent } from "@/document/document.component";
 import { UserComponent } from "@/user/user.component";
 import { AccordionModule } from 'ngx-bootstrap';
-import { FileComponent } from "@/file/file.component";
+import { MemoComponent } from "@/memo/memo.component";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
@@ -45,7 +46,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
         EmailComponent,
         DocumentComponent,
         UserComponent,
-        FileComponent
+        MemoComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
