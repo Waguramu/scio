@@ -58,10 +58,12 @@
 <h3 class="h3-responsive">Anmerkungen</h3>
 <hr>
 <!-- annotations -->
-<div>
-    <ul class="list-group list-group-horizontal-md flex-fill">
-        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
-    </ul>
+<div class="container">
+    <div class="row">
+        <ul>
+            <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of annotations">{{coll}}</li>
+        </ul>
+    </div>
 </div>
 <hr>
 <h3 class="h3-responsive">Memos</h3>
