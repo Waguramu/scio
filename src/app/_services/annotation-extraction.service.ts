@@ -24,6 +24,6 @@ export class AnnotationExtractionService {
     }
 
     runSearchQuery(query: string) {
-        return this.http.post<Document[]>(`${config.apiUrl}/annotation/extract`, {query: query});
+        return this.http.post<Document[]>(`${config.apiUrl}/annotation/search`, {query: query});
     }
 }

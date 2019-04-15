@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FakeData} from "@/_helpers";
 import {Document} from "@/_models";
-import { AnnotationExtractionService } from "@/_services";
+import {AnnotationExtractionService} from "@/_services";
 
 @Component({
     templateUrl: 'search.component.html',
@@ -10,6 +10,7 @@ import { AnnotationExtractionService } from "@/_services";
 export class SearchComponent {
     pic_search = "/src/assets/img/loupe-w.png";
     pic_file4search = "/src/assets/img/file4search.png";
+    queryTime = 1.1;
 
     fakeData: FakeData;
     annotationExtractionService: AnnotationExtractionService;
@@ -109,7 +110,7 @@ export class SearchComponent {
     meta: any[];
     documents: Document[];
 
-    constructor(annotationService : AnnotationExtractionService) {
+    constructor(annotationService: AnnotationExtractionService) {
         this.fakeData = new FakeData();
         this.searching = false;
         this.query = "";
@@ -130,7 +131,7 @@ export class SearchComponent {
             this.searching = false;
         } else {
             this.warning = false;
-            this.searching = !this.searching;
+            this.searching = true;
             console.log('search()');
             console.log(this.query);
         }
@@ -138,7 +139,6 @@ export class SearchComponent {
         this.extractAnnotations(this.query);
 
     };
-
 
 
     extractTextFromPDF(file: File) {
@@ -161,15 +161,16 @@ export class SearchComponent {
         this.annotationExtractionService.extractAnnotations(text).subscribe(
             annotations => {
                 console.log("Received annotations: " + annotations);
+                this.annotations = annotations;
                 this.runSearch(annotations.join(" "));
             },
             error => {
                 this.warn("Failed to generate text annotation: " + error);
+                this.annotations = [text];
                 this.runSearch(text);
             },
         );
     };
-
 
 
     private applyAnnotations(annotations) {
@@ -182,7 +183,7 @@ export class SearchComponent {
                 this.meta.push({
                     id: document.id,
                     annotations: intersection,
-                    percentage: 100 * intersection.length / annotations.length
+                    score: 100 * intersection.length / annotations.length
                 });
             }
         }
@@ -208,6 +209,9 @@ export class SearchComponent {
         this.annotationExtractionService.runSearchQuery(annotation).subscribe(
             result => {
                 console.log("Received search results");
+                result.forEach(document => {
+                    this.meta.push(document)
+                });
                 result.forEach(document => this.documents.push(document));
             },
             error => {
@@ -218,7 +222,7 @@ export class SearchComponent {
     }
 
     getPercentage(id) {
-        return this.meta.filter(a => a.id == id).map(a => a.percentage);
+        return this.meta.filter(a => a.id == id).map(a => Math.floor(a.score * 100));
     }
 
     warn(message: string) {

@@ -440,7 +440,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         return of(null).pipe(mergeMap(() => {
 
             // authenticate - public
-            if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
+            if (request.url.endsWith('/user/login') && request.method === 'POST') {
 
                 let user = users.find(x => x.username === request.body.username && x.password === request.body.password);
                 if (!user) return error('Username or password is incorrect');
@@ -454,7 +454,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             }
 
             // get all users
-            if (request.url.endsWith('/users') && request.method === 'GET') {
+            if (request.url.endsWith('/user/list') && request.method === 'GET') {
                 if (!isLoggedIn) return unauthorised();
                 return ok(users);
             }
