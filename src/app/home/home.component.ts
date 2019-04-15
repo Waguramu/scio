@@ -7,7 +7,7 @@ import { UserService, AuthenticationService } from '@/_services';
 
 @Component({
     templateUrl: 'home.component.html',
-    styleUrls: ['../app.component.css']
+    styleUrls: ['../app.component.css', 'home.component.css']
 })
 export class HomeComponent {
     currentUser: User;
@@ -38,5 +38,16 @@ export class HomeComponent {
     logout() {
         this.authenticationService.logout();
         this.router.navigate(['/login']);
+    }
+
+    editorDisplay = false;
+
+    toggle() {
+        if (this.editorDisplay == false) {
+            this.editorDisplay = true;
+        }
+        if (this.editorDisplay == true) {
+            this.editorDisplay = false;
+        }
     }
 }

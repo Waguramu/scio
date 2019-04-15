@@ -1,0 +1,10 @@
+.btn-new-docu {
+    position: fixed;
+    z-index: 1000;
+    right: 0px;
+}
+
+
+.displayEditor {
+    display: none;
+}

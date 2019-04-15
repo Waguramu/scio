@@ -20,9 +20,11 @@
     </div>
 </nav>
 <div class="container-fluid">
+    <button class="btn-new-docu" (click)="toggle()">Neue docu erstellen</button>
+
     <div class="row">
 
-        <!-- Left Menu -->
+        <!-- Left Menu
         <div class="col-12 col-sm-2">
             <div class="left-container">
                 <div class="" style="position: relative;">
@@ -44,16 +46,20 @@
 
             </div>
         </div>
-
+        -->
 
         <!-- Right -->
-        <div class="col-12 col-sm-8">
+        <div class="col-12 col-sm-6" style="border: 1px solid blueviolet;">
             <div class="right-container">
-
-
-                <!-- main app container -->
+                <div>Left part</div>
+                <!-- main app container
                 <router-outlet></router-outlet>
+                -->
             </div>
+        </div>
+
+        <div id="editor" class="col-12 col-sm-6" style="border: 1px solid blueviolet;" [class.displayEditor]="editorDisplay">
+            <div>I'm the editor</div>
         </div>
     </div>
 </div>
