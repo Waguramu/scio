@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
 import {FakeData} from "@/_helpers";
 import {Document} from "@/_models";
-import {query} from "@angular/animations";
-import {forEach} from "@angular/router/src/utils/collection";
 import { AnnotationExtractionService } from "@/_services";
-import {error} from "util";
 
 @Component({
     templateUrl: 'search.component.html',
@@ -168,7 +165,7 @@ export class SearchComponent {
             },
             error => {
                 this.warn("Failed to generate text annotation: " + error);
-                this.runSearch(["china", "export"].join(" "));
+                this.runSearch(text);
             },
         );
     };
@@ -176,6 +173,7 @@ export class SearchComponent {
 
 
     private applyAnnotations(annotations) {
+        console.log("Running local search: " + annotations);
         this.annotations = annotations;
         this.meta = [];
         for (let document of this.fakeData.documents) {
@@ -188,6 +186,7 @@ export class SearchComponent {
                 });
             }
         }
+        console.log("Meta length: " + this.meta.length);
         // Sort the documents' ids in descending order so the best coincidence is at the top
         this.meta.sort((a, b) => {
             if (a.annotations.length > b.annotations.length) {
