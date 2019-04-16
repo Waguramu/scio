@@ -146,13 +146,13 @@ export class SearchComponent {
     extractTextFromPDF(file: File) {
         this.annotationExtractionService.extractTextFromPDF(file).subscribe(
             text => {
-                console.log("Received extracted text: " + text);
-                this.query = text;
+                console.log("Received extracted text: " + text['annotations']);
+                this.query = text['annotations'];
                 this.search();
             },
             error => {
                 console.log("Failed to extract text, using default. Reason: " + error);
-                this.query = "Klein";
+                this.query = "Konrad Klein, Bernhard Vogel";
                 this.search();
             }
         )

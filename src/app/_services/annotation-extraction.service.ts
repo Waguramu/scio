@@ -12,11 +12,9 @@ export class AnnotationExtractionService {
         console.log("Uploading file: " + file.name);
         var formData = new FormData();
         formData.append('file', file);
-        return this.http.post<any>(`${config.apiUrl}/annotation/to_text`,
+        return this.http.post<object>(`${config.apiUrl}/annotation/to_text`,
             formData,
-            {
-                headers: {'Content-Type': undefined}
-            }
+            {}
         );
     }
 
