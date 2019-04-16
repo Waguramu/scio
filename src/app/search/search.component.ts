@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 export class SearchComponent {
     pic_search = "/src/assets/img/loupe-w.png";
     pic_file4search = "/src/assets/img/file4search.png";
+    hint_search = "Geben Sie Wörter ein oder laden Sie PDF hoch";
     queryTime = 1.1;
 
     fakeData: FakeData;
