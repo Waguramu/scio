@@ -3,6 +3,7 @@ import { FakeData } from  '../_helpers';
 import { AuthenticationService } from "@/_services";
 import {User} from "@/_models";
 import {Document} from "@/_models";
+import {Router} from "@angular/router";
 
 @Component({
     templateUrl: 'user.component.html',
@@ -21,7 +22,7 @@ export class UserComponent implements OnInit{
     collection_include_docu: number;
 
     heading1 = "Heading1";
-    constructor(private authenticationService: AuthenticationService) {
+    constructor(private authenticationService: AuthenticationService, private router: Router) {
         console.log('User getAll()');
         console.log(this.authenticationService.currentUser);
         this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
@@ -61,5 +62,7 @@ export class UserComponent implements OnInit{
         // console.log(this.bgGrayBool);
     };
 
-
+    openMemo() {
+        this.router.navigate(['../../home/memo']);
+    }
 }

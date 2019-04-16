@@ -20,7 +20,7 @@ export class HomeComponent {
     users: User[] = [];
     pic_write = "/src/assets/img/write.png";
     pic_logo = "/src/assets/img/logo-dark-blue.svg";
-    displayEditor = false;
+    displayEditor = true;
     
     // for editor
     tempDocAttributes = {title: 'Neue Dokument', id: 'kein', ref: 'kein', start: 'kein', end: 'kein', lawyer: 'kein', client: 'kein'};

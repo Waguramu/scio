@@ -69,6 +69,36 @@
 
                     <div class="tab-content-container">
                         <accordion>
+                            <accordion-group heading="{{document[0].title}} {{document[0].date}}" >
+                                <div style="color: black; font-weight: normal">
+                                    <h5>Annotations: </h5>
+                                    <ul class="list-group list-group-horizontal-md flex-fill" style="display: inline;">
+                                        <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document[0].annotations">{{coll}}</li>
+                                    </ul>
+                                    <table class="table table-hover table-borderless">
+                                        <tbody>
+                                        <tr>
+                                            <td><strong>ID: </strong>{{document[0].ref_id}}</td>
+                                            <td><strong>Referenz: </strong>{{document[0].reference}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Anfangsdatum: </strong>{{document[0].date}}</td>
+                                            <td><strong>Enddatum: </strong>20.05.2018</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Rechtsanwalt: </strong>{{document[1].creator}}</td>
+                                            <td><strong>Kunden: </strong>{{document[1].client}}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div>
+                                        <p>{{document[0].file.split('\n')[0]}}</p>
+                                    </div>
+                                </div>
+                                <button mdbBtn class="btn btn-primary" rounded="true" (click)="openMemo()">Mehr</button>
+                            </accordion-group>
+                        </accordion>
+                        <accordion>
                             <accordion-group heading="{{document[1].title}} {{document[1].date}}" >
                                 <div style="color: black; font-weight: normal">
                                     <h5>Annotations: </h5>
@@ -165,10 +195,10 @@
                     <div class="row">
                         <div class="col-12">
                             <a href="../../home/case">
-                                <div class="user-case-container">
+                                <div class="user-case-container" >
                                     <img src="{{pic_case}}" style="width: 50px; float: left;">
                                     <div>
-                                        <strong style="margin-left: 10px;">{{collection.title}}</strong>
+                                        <strong style="margin-left: 10px;"><a routerLink="../../home/case">{{collection.title}}</a></strong>
                                         <p>
                                             <span style="margin-left: 10px;">{{collection.ref_id}} </span>
                                             <span style="margin-left: 10px;">{{collection.date}} </span>
