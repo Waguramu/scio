@@ -18,19 +18,37 @@
     font-weight: normal;
 }
 
+/* breadcrumb */
 .breadcrumb {
     margin: 0 !important;
     padding: 0.5em !important;
+    background: none !important;
 }
 
+.breadcrumb-custom {
+    margin: 5px 0 10px 0;
+}
+
+.own-breadcrumb {
+    text-decoration: none;
+    color: #323232;
+}
+.own-breadcrumb-active {
+    color: #09ACC2;
+}
+.own-breadcrumb:hover {
+    text-decoration: none;
+    color: #09ACC2;
+}
 
 /* top nav bar */
 .navbar-custom {
-    background-color: #145B73;
+    background-color: #DBDBDB;
 }
 
 .nav-item a.nav-link {
-    color: white;
+    color: #323333;
+    font-size: 1.3em;
 }
 
 
@@ -62,4 +80,11 @@
     font-size: 11pt;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+
+/* logo */
+.logo-container img {
+    width: 40px;
+    height: auto;
 }
