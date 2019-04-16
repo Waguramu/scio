@@ -17,7 +17,7 @@ export class HomeComponent {
     currentUser: User;
     users: User[] = [];
     pic_write = "/src/assets/img/write.png";
-    pic_logo = "/src/assets/img/logo-dark-blue.svg"
+    pic_logo = "/src/assets/img/logo-dark-blue.svg";
     pic_profil = "src/assets/img/profil.png";
 
     displayEditor = true;
@@ -103,11 +103,7 @@ export class HomeComponent {
     }
 
     toggle() {
-        if (this.displayEditor == false) {
-            this.displayEditor = true;
-        } else {
-            this.displayEditor = false;
-        }
+        this.displayEditor = !this.displayEditor;
         // console.log(this.editorDisplay);
     }
 }
