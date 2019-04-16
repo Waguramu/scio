@@ -36,11 +36,20 @@
                 <a class="nav-item nav-link" (click)="logout()">Logout</a>
             </li>
             -->
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="./user">
+            <li class="nav-item" (mouseover)="hoverUser($event)" (mouseout)="outUser($event)">
+                <a class="nav-item nav-link dropbtn" routerLink="./user"  >
                     <img src="{{pic_profil}}" style="width: 40px;">
                 </a>
+
+                <!-- dropdown -->
+                <div id="dropdown-content" class="dropdown-content" >
+                    <a routerLink="./user">Profil</a>
+                    <a routerLink="./case">Meine Fälle</a>
+                    <a (click)="logout()">Ausloggen</a>
+                </div>
+
             </li>
+
         </ul>
     </div>
 </nav>

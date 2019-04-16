@@ -72,6 +72,7 @@ export class HomeComponent {
             '    <div>\n' +
             '        <p>' + this.tempDoc + '</p>\n' +
             '    </div>';
+            this.router.navigate(['/home/dashboard']);
     }
 
 
@@ -109,5 +110,14 @@ export class HomeComponent {
             this.displayEditor = false;
         }
         // console.log(this.editorDisplay);
+    }
+
+    hoverUser() {
+        console.log('hoverUser');
+        document.getElementById('dropdown-content').style.display = "block";
+    }
+
+    outUser() {
+        document.getElementById('dropdown-content').style.display = "none";
     }
 }
