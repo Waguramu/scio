@@ -1,4 +1,14 @@
+.logo-name {
+    margin: 10px;
+    font-weight: 500;
+    color: #145B73;
+    font-size: 2em;
+    line-height: 34px;
+}
 
+a.logo-link:hover {
+    text-decoration: none;
+}
 
 /* editor */
 .document-editor {

@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -33,6 +33,7 @@ import { ViewerComponent } from "@/viewer/viewer.component";
 import { ModalComponent } from "@/modal/modal.component";
 
 
+
 @NgModule({
     imports: [
         BrowserModule,
@@ -58,7 +59,8 @@ import { ModalComponent } from "@/modal/modal.component";
         MemoComponent,
         CaseComponent,
         ViewerComponent,
-        ModalComponent
+        ModalComponent,
+        DashboardComponent
     ],
     entryComponents: [ ModalComponent ],
     providers: [
@@ -73,4 +75,3 @@ import { ModalComponent } from "@/modal/modal.component";
 })
 
 export class AppModule { }
-

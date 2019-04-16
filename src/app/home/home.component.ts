@@ -21,7 +21,7 @@ export class HomeComponent {
     pic_write = "/src/assets/img/write.png";
     pic_logo = "/src/assets/img/logo-dark-blue.svg";
     displayEditor = false;
-
+    
     // for editor
     tempDocAttributes = {title: 'Neue Dokument', id: 'kein', ref: 'kein', start: 'kein', end: 'kein', lawyer: 'kein', client: 'kein'};
     fakeData: FakeData;
@@ -83,6 +83,7 @@ export class HomeComponent {
             editor.ui.view.toolbar.element,
             editor.ui.getEditableElement()
         );
+
     }
     toggleDisabled() {
         this.isDisabled = !this.isDisabled
