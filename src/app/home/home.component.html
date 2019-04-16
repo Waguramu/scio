@@ -1,26 +1,40 @@
 ﻿<nav class="navbar navbar-expand-md navbar-custom" *ngIf="currentUser">
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <div class="logo-container">
-            <img src="{{pic_logo}}">
+            <div style="float: left;">
+                <img src="{{pic_logo}}">
+            </div>
+            <span style="margin: 10px; font-weight: 500; color: #145B73; font-size: 2em; line-height: 34px;">SCIO</span>
         </div>
         <ul class="navbar-nav ml-auto">
+            <!--
             <li class="nav-item">
                 <a class="nav-item nav-link" routerLink="./document">document</a>
             </li>
             <li class="nav-item">
                 <a class="nav-item nav-link" routerLink="./memo">memo</a>
             </li>
+            -->
             <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="./search">search</a>
+                <a class="nav-item nav-link" routerLink="./search">SUCHEN</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-item nav-link" routerLink="./user">user</a>
             </li>
+            -->
             <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="./case">case</a>
+                <a class="nav-item nav-link" routerLink="./case">DATENBANK</a>
             </li>
+            <!--
             <li class="nav-item">
                 <a class="nav-item nav-link" (click)="logout()">Logout</a>
+            </li>
+            -->
+            <li class="nav-item">
+                <a class="nav-item nav-link" routerLink="./user">
+                    <img src="{{pic_profil}}" style="width: 40px;">
+                </a>
             </li>
         </ul>
     </div>

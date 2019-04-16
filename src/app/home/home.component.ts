@@ -18,6 +18,8 @@ export class HomeComponent {
     users: User[] = [];
     pic_write = "/src/assets/img/write.png";
     pic_logo = "/src/assets/img/logo-dark-blue.svg"
+    pic_profil = "src/assets/img/profil.png";
+
     displayEditor = false;
 
     // for editor
