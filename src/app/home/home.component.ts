@@ -20,7 +20,7 @@ export class HomeComponent {
     pic_logo = "/src/assets/img/logo-dark-blue.svg"
     pic_profil = "src/assets/img/profil.png";
 
-    displayEditor = false;
+    displayEditor = true;
 
     // for editor
     tempDoc: string;
@@ -81,6 +81,7 @@ export class HomeComponent {
             editor.ui.view.toolbar.element,
             editor.ui.getEditableElement()
         );
+
     }
     toggleDisabled() {
         this.isDisabled = !this.isDisabled
