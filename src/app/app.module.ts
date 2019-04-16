@@ -28,7 +28,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { CaseComponent } from "@/case/case.component";
 import { CollapseModule } from 'ngx-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { ViewerComponent } from "@/viewer/viewer.component";
+import { ViewerComponent } from "@/viewer/viewer.component";;
+import { DashboardComponent } from './dashboard/dashboard.component'
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { ViewerComponent } from "@/viewer/viewer.component";
         UserComponent,
         MemoComponent,
         CaseComponent,
-        ViewerComponent
+        ViewerComponent,
+        DashboardComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -2,9 +2,14 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <div class="logo-container">
             <div style="float: left;">
-                <img src="{{pic_logo}}">
+                <a routerLink="./dashboard">
+                    <img src="{{pic_logo}}">
+                </a>
+
             </div>
-            <span style="margin: 10px; font-weight: 500; color: #145B73; font-size: 2em; line-height: 34px;">scio</span>
+            <a routerLink="./dashboard" class="logo-link">
+                <span class="logo-name">scio</span>
+            </a>
         </div>
         <ul class="navbar-nav ml-auto">
             <!--
@@ -31,11 +36,20 @@
                 <a class="nav-item nav-link" (click)="logout()">Logout</a>
             </li>
             -->
-            <li class="nav-item">
-                <a class="nav-item nav-link" routerLink="./user">
+            <li class="nav-item" (mouseover)="hoverUser($event)" (mouseout)="outUser($event)">
+                <a class="nav-item nav-link dropbtn" routerLink="./user"  >
                     <img src="{{pic_profil}}" style="width: 40px;">
                 </a>
+
+                <!-- dropdown -->
+                <div id="dropdown-content" class="dropdown-content" >
+                    <a routerLink="./user">Profil</a>
+                    <a routerLink="./case">Meine Fälle</a>
+                    <a (click)="logout()">Ausloggen</a>
+                </div>
+
             </li>
+
         </ul>
     </div>
 </nav>
@@ -51,7 +65,8 @@
         <div class="col-12 col-sm-6" [class.col-sm-12]="displayEditor">
             <div class="main-container">
                 <!-- main app container-->
-                <router-outlet></router-outlet>
+                <router-outlet>
+                </router-outlet>
             </div>
         </div>
 

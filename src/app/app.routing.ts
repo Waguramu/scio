@@ -9,6 +9,7 @@ import { UserComponent } from "@/user/user.component";
 import { MemoComponent } from "@/memo/memo.component";
 import { CaseComponent } from "@/case/case.component";
 import { ViewerComponent } from "@/viewer/viewer.component";
+import { DashboardComponent } from "@/dashboard/dashboard.component";
 
 const appRoutes: Routes = [
     {
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
         component: HomeComponent,
         canActivate: [AuthGuard],
         children: [
+            { path: 'dashboard', component: DashboardComponent },
             { path: 'search', component: SearchComponent },
             { path: 'email', component: EmailComponent },
             { path: 'document', component: DocumentComponent },
