@@ -3,6 +3,7 @@ import {FakeData} from "@/_helpers";
 import {Document} from "@/_models";
 import {AnnotationExtractionService} from "@/_services";
 import { map } from 'rxjs/operators';
+import {Router} from "@angular/router";
 
 @Component({
     templateUrl: 'search.component.html',
@@ -113,7 +114,7 @@ export class SearchComponent {
     meta: any[];
     documents: Document[];
 
-    constructor(annotationService: AnnotationExtractionService) {
+    constructor(annotationService: AnnotationExtractionService, private router: Router) {
         this.fakeData = new FakeData();
         this.searching = false;
         this.query = "";
@@ -284,5 +285,9 @@ export class SearchComponent {
     searchFile(event: Event) {
         console.log("File search request triggered");
         this.extractTextFromPDF((<HTMLInputElement>(event.target)).files[0]);
+    }
+
+    openMemo() {
+        this.router.navigate(['../../home/memo']);
     }
 }
