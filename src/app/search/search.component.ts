@@ -256,7 +256,11 @@ export class SearchComponent {
             result => {
                 console.log("Received search results");
                 result.forEach(document => {
-                    this.meta.push(document)
+                    this.meta.push({
+                        id: document.id,
+                        annotations: document.annotations,
+                        score: document['score']
+                    })
                 });
                 result.forEach(document => this.documents.push(document));
             },
