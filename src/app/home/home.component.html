@@ -2,9 +2,14 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <div class="logo-container">
             <div style="float: left;">
-                <img src="{{pic_logo}}">
+                <a routerLink="./dashboard">
+                    <img src="{{pic_logo}}">
+                </a>
+
             </div>
-            <span style="margin: 10px; font-weight: 500; color: #145B73; font-size: 2em; line-height: 34px;">scio</span>
+            <a routerLink="./dashboard" class="logo-link">
+                <span class="logo-name">scio</span>
+            </a>
         </div>
         <ul class="navbar-nav ml-auto">
             <!--
@@ -51,7 +56,8 @@
         <div class="col-12 col-sm-6" [class.col-sm-12]="displayEditor">
             <div class="main-container">
                 <!-- main app container-->
-                <router-outlet></router-outlet>
+                <router-outlet>
+                </router-outlet>
             </div>
         </div>
 
