@@ -12,7 +12,6 @@
     </mdb-breadcrumb>
 </div>
 
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
@@ -23,13 +22,44 @@
                     <li class="badge badge-pill badge-info" style="margin: 5px 5px 5px 5px;" *ngFor="let coll of document.annotations">{{coll}}</li>
                 </ul>
             </div>
+            <br>
+            <!-- <ckeditor [editor]="Editor" data={{fileString}} (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor> -->
 
-            <button (click)="toggleDisabled()" class="btn btn-primary" style="margin-top: 10px; margin-bottom: 10px;">
-                {{ isDisabled ? 'Edit the document' : 'Save the document' }}
-            </button>
-
-            <ckeditor [editor]="Editor" data={{fileString}} (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor>
+            <div class="container" style="border: 1px;">
+                <div class="row">
+                    <div class="col-md-10"> <h1 class="h1-responsive">{{document.title}}</h1></div>
+                    <div class="col-md-2">
+                        <button mdbBtn color="primary" (click)="extractEntities()">Extract entities</button>
+                    </div>
+                </div>
+            <table class="table table-hover table-borderless">
+                <tr>
+                    <td><strong>ID: </strong> {{document.id}} </td>
+                    <td><strong>Referenz: </strong>German Export Law</td>
+                </tr>
+                <tr>
+                        <td><strong>Anfangsdatum: </strong>01.02.2018</td>
+                        <td><strong>Enddatum: </strong>20.05.2018</td>
+                    </tr>
+                <tr>
+                        <td><strong>Rechtsanwalt: </strong>x</td>
+                        <td><strong>Kunden: </strong>x</td>
+                    </tr>
+            </table>
+            <div class="container">
+                <div class="row" *ngFor="let key of keys">
+                    <div class="col-md-10"> {{referencedData[key].paragraph}} </div>
+                    <div class="col-md-2 align-content-center align-middle" style="border-bottom: 1px solid; border-color: gray">
+                        <h6>{{referencedData[key].ref}}</h6>
+                        <button type="button" mdbBtn color="info" rounded="true" data-toggle="modal"
+                                (click)="copyText(referencedData[key].paragraph)">
+                            Notiz kopieren
+                        </button>
+                    </div>
+            </div>
+            </div>
 
         </div>
     </div>
+</div>
 </div>

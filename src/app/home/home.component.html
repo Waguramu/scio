@@ -58,7 +58,7 @@
                     {{ isDisabled ? 'Edit the document' : 'Save the document' }}
                 </button>
 
-                <ckeditor [editor]="Editor" data={{fileString}} (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor>
+                <ckeditor [editor]="Editor" [(ngModel)]="editorData" (ready)="onReady($event)" [disabled]="isDisabled"></ckeditor>
             </div>
 
 

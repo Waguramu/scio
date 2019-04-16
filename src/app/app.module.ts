@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers';
+import { StorageService } from "@/_services/storage.service";
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
@@ -29,6 +30,7 @@ import { CaseComponent } from "@/case/case.component";
 import { CollapseModule } from 'ngx-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ViewerComponent } from "@/viewer/viewer.component";
+import { ModalComponent } from "@/modal/modal.component";
 
 
 @NgModule({
@@ -55,11 +57,14 @@ import { ViewerComponent } from "@/viewer/viewer.component";
         UserComponent,
         MemoComponent,
         CaseComponent,
-        ViewerComponent
+        ViewerComponent,
+        ModalComponent
     ],
+    entryComponents: [ ModalComponent ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+        StorageService
 
         // provider used to create fake backend
         // fakeBackendProvider
