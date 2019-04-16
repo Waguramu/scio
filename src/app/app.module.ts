@@ -31,6 +31,7 @@ import { CollapseModule } from 'ngx-bootstrap';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ViewerComponent } from "@/viewer/viewer.component";
 import { ModalComponent } from "@/modal/modal.component";
+import { DashboardComponent } from "@/dashboard/dashboard.component";
 
 
 
