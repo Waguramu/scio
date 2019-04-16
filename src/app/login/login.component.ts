@@ -6,8 +6,13 @@ import { first } from 'rxjs/operators';
 import { AuthenticationService } from '@/_services';
 import {User} from "@/_models";
 
-@Component({ templateUrl: 'login.component.html' })
+
+@Component({
+    templateUrl: 'login.component.html',
+    styleUrls: ['../app.component.css', 'login.component.css']
+})
 export class LoginComponent implements OnInit {
+    pic_logo = "/src/assets/img/logo-dark-blue.svg";
     currentUser: User;
     loginForm: FormGroup;
     loading = false;
