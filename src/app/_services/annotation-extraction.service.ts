@@ -10,7 +10,7 @@ export class AnnotationExtractionService {
 
     extractTextFromPDF(file: File) {
         console.log("Uploading file: " + file.name);
-        var formData = new FormData();
+        const formData = new FormData();
         formData.append('file', file);
         return this.http.post<object>(`${config.apiUrl}/annotation/to_text`,
             formData,

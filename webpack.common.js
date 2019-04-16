@@ -1,6 +1,6 @@
-﻿const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/main.ts',
@@ -42,8 +42,4 @@ module.exports = {
         },
         runtimeChunk: true
     },
-    devServer: {
-        historyApiFallback: true,
-        disableHostCheck: true
-    }
 };
