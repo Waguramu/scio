@@ -1,4 +1,4 @@
-# DeepJ
+# scio
 ## Deep AI tool for facilitating judicial workflows
 Motivation: 
 
